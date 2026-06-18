@@ -13,8 +13,6 @@ export const flavors = [
 ]
 
 export const addOns = [
-  { id: 'extra-ice', name: 'Extra Ice', price: 0 },
-  { id: 'sugar-free', name: 'Sugar-Free Syrup', price: 0.5 },
-  { id: 'fruit-topper', name: 'Fresh Fruit Topper', price: 1.0 },
-  { id: 'large-cup', name: 'Upgrade to Large', price: 1.0 },
+  { id: 'sweet-cream', name: 'Sweet Cream', price: 1.0 },
+  { id: 'chamoy-tajin-rim', name: 'Chamoy & Tajin Rim', price: 1.0 },
 ]
