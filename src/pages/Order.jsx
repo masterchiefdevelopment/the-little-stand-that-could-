@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import Nav from '../components/Nav'
+import Footer from '../components/Footer'
 import { flavors, addOns } from '../data/menu'
 import { supabase } from '../lib/supabase'
 
@@ -136,6 +138,8 @@ function Order() {
 
   if (orderConfirmed) {
     return (
+      <div style={{ backgroundColor: '#FFFBEB' }}>
+        <Nav />
       <div className="flex min-h-[70vh] w-full items-center justify-center" style={{ backgroundColor: '#FFFBEB' }}>
         <div className="mx-auto max-w-lg rounded-2xl p-8 text-center shadow-lg" style={{ backgroundColor: '#fff' }}>
           <h1 className="font-serif text-3xl font-bold" style={{ color: '#0B1F3A' }}>
@@ -187,11 +191,14 @@ function Order() {
           </div>
         </div>
       </div>
+        <Footer />
+      </div>
     )
   }
 
   return (
     <div style={{ backgroundColor: '#FFFBEB' }}>
+      <Nav />
       <section className="w-full" style={{ backgroundColor: '#0B1F3A' }}>
         <div className="mx-auto max-w-6xl px-4 py-10 text-center sm:px-6">
           <h1 className="font-serif text-3xl font-bold sm:text-4xl" style={{ color: '#FFFBEB' }}>
@@ -478,6 +485,8 @@ function Order() {
           </div>
         </form>
       </div>
+
+      <Footer />
     </div>
   )
 }

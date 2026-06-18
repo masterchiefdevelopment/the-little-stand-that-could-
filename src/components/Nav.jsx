@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const navLinks = [
@@ -5,45 +6,61 @@ const navLinks = [
   { label: 'Menu', to: '/menu' },
   { label: 'Order', to: '/order' },
   { label: 'Location', to: '/location' },
-  { label: 'Gallery', to: '/gallery' },
   { label: 'Events', to: '/events' },
   { label: 'Account', to: '/account' },
 ]
 
 function Nav() {
+  const [isOpen, setIsOpen] = useState(false)
+
   return (
-    <header
-      className="sticky top-0 z-50 w-full border-b"
-      style={{ backgroundColor: '#FFFBEB', borderColor: 'rgba(8,7,20,0.08)' }}
-    >
+    <header className="sticky top-0 z-50 w-full" style={{ backgroundColor: '#1a1a2e' }}>
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
-        <Link
-          to="/"
-          className="font-serif text-xl font-bold sm:text-2xl"
-          style={{ color: '#0B1F3A' }}
-        >
+        <Link to="/" className="font-serif text-xl font-bold sm:text-2xl" style={{ color: '#FCD34D' }}>
           The Little Stand That Could
         </Link>
+
         <nav className="hidden gap-6 md:flex">
           {navLinks.map((link) => (
             <Link
               key={link.to}
               to={link.to}
-              className="text-sm font-semibold transition-colors hover:opacity-70"
-              style={{ color: '#0B1F3A' }}
+              className="text-sm font-semibold text-white transition-colors hover:text-pink-400"
+              style={{ '--tw-text-opacity': 1 }}
+              onMouseEnter={(e) => (e.target.style.color = '#E84C89')}
+              onMouseLeave={(e) => (e.target.style.color = '#fff')}
             >
               {link.label}
             </Link>
           ))}
         </nav>
-        <Link
-          to="/order"
-          className="rounded-lg px-4 py-2 text-sm font-bold transition-colors"
-          style={{ backgroundColor: '#FCD34D', color: '#0B1F3A' }}
+
+        <button
+          type="button"
+          onClick={() => setIsOpen(!isOpen)}
+          className="text-sm font-bold text-white md:hidden"
+          aria-label="Toggle menu"
         >
-          Order Online
-        </Link>
+          {isOpen ? 'Close' : 'Menu'}
+        </button>
       </div>
+
+      {isOpen && (
+        <nav className="flex flex-col gap-3 px-4 pb-4 md:hidden">
+          {navLinks.map((link) => (
+            <Link
+              key={link.to}
+              to={link.to}
+              onClick={() => setIsOpen(false)}
+              className="text-sm font-semibold text-white transition-colors"
+              onMouseEnter={(e) => (e.target.style.color = '#E84C89')}
+              onMouseLeave={(e) => (e.target.style.color = '#fff')}
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+      )}
     </header>
   )
 }

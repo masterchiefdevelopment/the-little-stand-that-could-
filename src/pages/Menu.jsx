@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom'
+import Nav from '../components/Nav'
+import Footer from '../components/Footer'
 import { flavors, addOns } from '../data/menu'
 
 function Menu() {
   return (
     <div style={{ backgroundColor: '#FFFBEB' }}>
+      <Nav />
       <section className="w-full" style={{ backgroundColor: '#0B1F3A' }}>
         <div className="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 sm:py-20">
           <h1 className="font-serif text-4xl font-bold sm:text-5xl" style={{ color: '#FFFBEB' }}>
@@ -71,6 +74,8 @@ function Menu() {
           </Link>
         </div>
       </section>
+
+      <Footer />
     </div>
   )
 }

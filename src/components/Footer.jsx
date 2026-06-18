@@ -2,20 +2,36 @@ import { Link } from 'react-router-dom'
 
 function Footer() {
   return (
-    <footer style={{ backgroundColor: '#0B1F3A', color: '#FFFBEB' }}>
+    <footer className="relative w-full" style={{ backgroundColor: '#1a1a2e', color: '#FFFBEB' }}>
+      <svg
+        className="pointer-events-none absolute top-0 left-0 h-3 w-full opacity-40"
+        viewBox="0 0 1200 24"
+        fill="none"
+        aria-hidden="true"
+      >
+        <path d="M0 12 C200 0, 400 24, 600 12 C800 0, 1000 24, 1200 12" stroke="#FCD34D" strokeWidth="3" fill="none" />
+      </svg>
+
       <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
           <div>
-            <p className="font-serif text-lg font-bold" style={{ color: '#FCD34D' }}>
-              The Little Stand That Could
+            <p className="text-sm font-bold uppercase tracking-wide" style={{ color: '#FCD34D' }}>
+              Visit Us
             </p>
             <p className="mt-2 text-sm" style={{ color: 'rgba(255,251,235,0.75)' }}>
-              Family-owned, faith-forward, fresh-squeezed lemonade made right here in South Africa.
+              123 Lemonade Lane<br />San Antonio, TX
+            </p>
+            <p className="mt-2 text-sm" style={{ color: 'rgba(255,251,235,0.75)' }}>
+              (210) 555-0123
+            </p>
+            <p className="mt-2 text-sm" style={{ color: 'rgba(255,251,235,0.75)' }}>
+              Tue–Sun, 11am–6pm
             </p>
           </div>
+
           <div>
             <p className="text-sm font-bold uppercase tracking-wide" style={{ color: '#FCD34D' }}>
-              Explore
+              Quick Links
             </p>
             <div className="mt-2 flex flex-col gap-2 text-sm">
               <Link to="/menu" className="hover:opacity-70">
@@ -24,25 +40,29 @@ function Footer() {
               <Link to="/order" className="hover:opacity-70">
                 Order Online
               </Link>
-              <Link to="/location" className="hover:opacity-70">
-                Visit The Shop
-              </Link>
               <Link to="/events" className="hover:opacity-70">
-                Book Us For Events
+                Book Events
               </Link>
             </div>
           </div>
+
           <div>
             <p className="text-sm font-bold uppercase tracking-wide" style={{ color: '#FCD34D' }}>
-              Connect
+              Follow Us
             </p>
-            <p className="mt-2 text-sm" style={{ color: 'rgba(255,251,235,0.75)' }}>
-              hello@thelittlestand.co.za
-            </p>
+            <div className="mt-2 flex flex-col gap-2 text-sm">
+              <a href="https://instagram.com" target="_blank" rel="noreferrer" className="hover:opacity-70">
+                Instagram
+              </a>
+              <a href="https://facebook.com" target="_blank" rel="noreferrer" className="hover:opacity-70">
+                Facebook
+              </a>
+            </div>
           </div>
         </div>
+
         <p className="mt-8 text-center text-xs" style={{ color: 'rgba(255,251,235,0.5)' }}>
-          © {new Date().getFullYear()} The Little Stand That Could. All rights reserved.
+          © 2026 The Little Stand That Could. All rights reserved.
         </p>
       </div>
     </footer>

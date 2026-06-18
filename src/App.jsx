@@ -1,6 +1,4 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Nav from './components/Nav'
-import Footer from './components/Footer'
 import Home from './pages/Home'
 import Menu from './pages/Menu'
 import Order from './pages/Order'
@@ -13,7 +11,6 @@ import Admin from './pages/Admin'
 function App() {
   return (
     <BrowserRouter>
-      <Nav />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/menu" element={<Menu />} />
@@ -24,7 +21,6 @@ function App() {
         <Route path="/account" element={<Account />} />
         <Route path="/admin" element={<Admin />} />
       </Routes>
-      <Footer />
     </BrowserRouter>
   )
 }
