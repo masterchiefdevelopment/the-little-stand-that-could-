@@ -2,6 +2,20 @@ import { Link } from 'react-router-dom'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 
+const storyPhotos = [
+  { src: '/photos/stand.jpg', alt: 'The stand setup' },
+  { src: '/photos/social_event.jpg', alt: 'Community event' },
+  { src: '/photos/event.jpg', alt: 'Event' },
+  { src: '/photos/drink_1.jpg', alt: 'Fresh lemonade' },
+  { src: '/photos/drink_2_background.jpg', alt: 'Lemonade drink' },
+  { src: '/photos/drink_3_background.jpg', alt: 'Pink lemonade' },
+  { src: '/photos/drink_4_corporate.jpg', alt: 'Corporate event' },
+  { src: '/photos/header.jpg', alt: 'Event header' },
+  { src: '/photos/logo.jpg', alt: 'Logo' },
+  { src: '/photos/graphic.jpg', alt: 'Branding' },
+  { src: '/photos/design.jpg', alt: 'Design element' },
+]
+
 function Story() {
   return (
     <div style={{ backgroundColor: '#081A33', color: '#FFF7E5' }}>
@@ -21,7 +35,68 @@ function Story() {
           <p className="mx-auto mt-6 max-w-2xl text-base leading-8" style={{ color: '#E8D8B0' }}>
             A family story rooted in faith, service, and a simple stand that became a blessing for our community.
           </p>
-          <img src="/photos/event.jpg" alt="Community event" style={{ width: '100%', borderRadius: '8px', marginTop: '2rem', marginBottom: '2rem' }} />
+        </div>
+      </section>
+
+      <section className="w-full" style={{ backgroundColor: '#102B57' }}>
+        <div
+          className="responsive-container responsive-text-section"
+          style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(1rem, 3vw, 2rem)' }}
+        >
+          <div
+            className="mx-auto"
+            style={{
+              maxWidth: '900px',
+              backgroundColor: 'rgba(0,0,0,0.35)',
+              border: '1px solid rgba(255,255,255,0.12)',
+              borderRadius: '14px',
+              padding: 'clamp(1rem, 3vw, 2rem)',
+            }}
+          >
+            <h2 className="font-serif text-2xl font-bold sm:text-3xl" style={{ color: '#FFF7E5' }}>
+              Where Purpose Took Root
+            </h2>
+            <div className="mt-4 space-y-4 text-base leading-8" style={{ color: '#E8D8B0' }}>
+              <p>
+                We started with a simple lemonade stand and a dream. What began as a small family hustle quickly
+                became something much bigger. Along the way, we found faith, community, and purpose.
+              </p>
+              <p>
+                Today, The Little Stand That Could is a family-owned business serving fresh-squeezed lemonade made
+                with real fruit and real ingredients. No syrups. No shortcuts.
+              </p>
+              <p>
+                More than lemonade, our mission is to create a place where people can gather, connect, and experience
+                the love of Jesus through community, kindness, and service.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="w-full" style={{ backgroundColor: '#0E264C' }}>
+        <div
+          className="responsive-container responsive-card-container"
+          style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(1rem, 4vw, 2rem)' }}
+        >
+          <h2 className="text-center font-serif text-2xl font-bold sm:text-3xl" style={{ color: '#FFF7E5' }}>
+            Moments From Our Journey
+          </h2>
+          <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
+            {storyPhotos.map((photo) => (
+              <figure
+                key={photo.src}
+                className="overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-lg transition duration-300 hover:shadow-2xl"
+              >
+                <img
+                  src={photo.src}
+                  alt={photo.alt}
+                  className="h-full w-full object-cover transition duration-300 hover:scale-105"
+                  style={{ minHeight: '240px' }}
+                />
+              </figure>
+            ))}
+          </div>
         </div>
       </section>
 

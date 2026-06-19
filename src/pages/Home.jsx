@@ -98,7 +98,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="relative w-full overflow-hidden" style={{ backgroundColor: '#FFFBEB' }}>
+      <section className="relative w-full overflow-hidden" style={{ backgroundColor: '#0A0A0A' }}>
         <svg
           className="pointer-events-none absolute -left-6 top-0 hidden h-full w-20 opacity-20 sm:block"
           viewBox="0 0 100 600"
@@ -114,43 +114,64 @@ function Home() {
         </svg>
 
         <div
-          className="relative z-10 responsive-container responsive-pad responsive-gap grid grid-cols-1 md:grid-cols-2"
+          className="relative z-10 responsive-container"
           style={{
             maxWidth: '1200px',
             margin: '0 auto',
             padding: 'clamp(1rem, 3vw, 2rem)',
-            gap: 'clamp(1rem, 4vw, 2rem)',
-            alignItems: 'center',
           }}
         >
-          <div>
-            <h2 className="font-serif text-3xl font-bold sm:text-4xl" style={{ color: '#1a1a2e' }}>
-              The Little Stand That Could
-            </h2>
-            <p className="mt-4 text-center text-base italic md:text-left" style={{ color: '#E84C89' }}>
-              "Whoever brings blessing will be enriched, and one who waters will himself be watered."
-              <br />— Proverbs 11:25
-            </p>
-            <div className="mt-6 space-y-4 text-base leading-relaxed" style={{ color: '#1a1a2e' }}>
-              <p>
-                We started with a simple lemonade stand and a dream. What began as a small family
-                hustle quickly became something much bigger. Along the way, we found faith,
-                community, and purpose.
+          <div
+            style={{
+              borderRadius: '16px',
+              overflow: 'hidden',
+              backgroundColor: '#000000',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '0.75rem',
+            }}
+          >
+            <div
+              style={{
+                backgroundColor: 'rgba(0,0,0,0.5)',
+                padding: 'clamp(1rem, 3vw, 2rem)',
+                textAlign: 'center',
+              }}
+            >
+              <h2
+                className="font-serif text-3xl font-bold sm:text-4xl"
+                style={{ color: '#FFFFFF', textShadow: '0 2px 10px rgba(0,0,0,0.8)' }}
+              >
+                The Little Stand That Could
+              </h2>
+              <p
+                className="mt-3 text-base italic sm:text-lg"
+                style={{ color: '#FFFFFF', textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}
+              >
+                Those who refresh will themselves be refreshed.
               </p>
-              <p>
-                Today, The Little Stand That Could is a family-owned business serving
-                fresh-squeezed lemonade made with real fruit and real ingredients. No syrups. No
-                shortcuts.
+              <p className="mt-1 text-sm" style={{ color: '#FCD34D', textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>
+                — Proverbs 11:25
               </p>
-              <p>
-                More than lemonade, our mission is to create a place where people can gather,
-                connect, and experience the love of Jesus through community, kindness, and
-                service. Every lemonade purchased helps support our family and the events we host
-                for our community.
+            </div>
+
+            <img src="/photos/stand.jpg" alt="The Little Stand" style={{ width: '100%', display: 'block' }} />
+
+            <div
+              style={{
+                backgroundColor: 'rgba(0,0,0,0.5)',
+                padding: 'clamp(1rem, 3vw, 2rem)',
+                textAlign: 'center',
+              }}
+            >
+              <p
+                className="mx-auto max-w-4xl text-base leading-relaxed sm:text-lg"
+                style={{ color: '#FFFFFF', textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}
+              >
+                A family-owned business serving fresh-squeezed lemonade made with real fruit and real ingredients. No syrups. No shortcuts.
               </p>
             </div>
           </div>
-          <img src="/photos/stand.jpg" alt="The Little Stand" style={{ width: '100%', borderRadius: '8px' }} />
         </div>
       </section>
 
