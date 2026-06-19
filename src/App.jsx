@@ -10,6 +10,7 @@ import Story from './pages/Story'
 import Test from './pages/Test'
 import Account from './pages/Account'
 import Admin from './pages/Admin'
+import WhyCompaniesChooseUs from './pages/WhyCompaniesChooseUs'
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/location" element={<Location />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/events" element={<Events />} />
+          <Route path="/why-companies-choose-us" element={<WhyCompaniesChooseUs />} />
           <Route path="/story" element={<Story />} />
           <Route path="/test" element={<Test />} />
           <Route path="/account" element={<Account />} />
