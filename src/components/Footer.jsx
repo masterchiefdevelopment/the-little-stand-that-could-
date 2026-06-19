@@ -51,10 +51,10 @@ function Footer() {
               Follow Us
             </p>
             <div className="mt-2 flex flex-col gap-2 text-sm">
-              <a href="https://instagram.com" target="_blank" rel="noreferrer" className="hover:opacity-70">
+              <a href="https://instagram.com/thelittlestandthatcould" target="_blank" rel="noreferrer" className="hover:opacity-70">
                 Instagram
               </a>
-              <a href="https://facebook.com" target="_blank" rel="noreferrer" className="hover:opacity-70">
+              <a href="https://facebook.com/thelittlestandthatcould" target="_blank" rel="noreferrer" className="hover:opacity-70">
                 Facebook
               </a>
             </div>
