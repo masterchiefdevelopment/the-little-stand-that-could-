@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const navLinks = [
   { label: 'Home', to: '/' },
@@ -12,13 +12,33 @@ const navLinks = [
 
 function Nav() {
   const [isOpen, setIsOpen] = useState(false)
+  const navigate = useNavigate()
 
   return (
     <header className="sticky top-0 z-50 w-full" style={{ backgroundColor: '#1a1a2e' }}>
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6">
-        <Link to="/" className="font-serif text-xl font-bold sm:text-2xl" style={{ color: '#FCD34D' }}>
-          The Little Stand That Could
-        </Link>
+        <div className="flex items-center">
+          <button
+            type="button"
+            onClick={() => navigate(-1)}
+            style={{
+              display: window.innerWidth < 768 ? 'block' : 'none',
+              background: 'none',
+              border: 'none',
+              color: '#ffd700',
+              fontSize: '1.5rem',
+              cursor: 'pointer',
+              padding: '0.5rem',
+              marginRight: '1rem',
+            }}
+          >
+            ← Back
+          </button>
+
+          <Link to="/" className="font-serif text-xl font-bold sm:text-2xl" style={{ color: '#FCD34D' }}>
+            The Little Stand That Could
+          </Link>
+        </div>
 
         <nav className="hidden gap-6 md:flex">
           {navLinks.map((link) => (

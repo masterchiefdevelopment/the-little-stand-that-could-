@@ -23,6 +23,7 @@ const whyUs = [
 
 function Home() {
   const previewFlavors = flavors.slice(0, 6)
+  const isSmallScreen = typeof window !== 'undefined' && window.innerWidth < 640
 
   return (
     <div style={{ backgroundColor: '#FFFBEB' }}>
@@ -145,11 +146,11 @@ function Home() {
               }}
             />
 
-            <div style={{ position: 'absolute', top: '20px', left: 0, right: 0, textAlign: 'center', zIndex: 10, padding: '0 2rem' }}>
-              <h2 style={{ fontSize: 'clamp(2.5rem, 8vw, 5rem)', color: '#ffffff', textShadow: '2px 2px 8px rgba(0,0,0,0.8)', margin: 0, lineHeight: 1.2 }}>
+            <div style={{ position: 'absolute', top: isSmallScreen ? '10px' : '20px', left: 0, right: 0, textAlign: 'center', zIndex: 10, padding: '1rem' }}>
+              <h2 style={{ fontSize: 'clamp(1.5rem, 6vw, 4rem)', color: '#ffffff', textShadow: '2px 2px 8px rgba(0,0,0,0.8)', margin: '0 0 0.5rem 0', lineHeight: 1.2 }}>
                 The Little Stand That Could
               </h2>
-              <p style={{ fontSize: 'clamp(1.2rem, 4vw, 1.8rem)', color: '#ffd700', fontStyle: 'italic', textShadow: '1px 1px 4px rgba(0,0,0,0.8)', margin: '10px 0', lineHeight: 1.4 }}>
+              <p style={{ fontSize: 'clamp(0.9rem, 3vw, 1.3rem)', color: '#ffd700', fontStyle: 'italic', textShadow: '1px 1px 4px rgba(0,0,0,0.8)', margin: '0.5rem 0', lineHeight: 1.4 }}>
                 Those who refresh will themselves be refreshed.
               </p>
               <p style={{ fontSize: '1.3rem', color: '#ffd700', textShadow: '1px 1px 4px rgba(0,0,0,0.8)', margin: 0, lineHeight: 1.4 }}>
@@ -157,8 +158,8 @@ function Home() {
               </p>
             </div>
 
-            <div style={{ position: 'absolute', bottom: '20px', left: 0, right: 0, textAlign: 'center', padding: '0 2rem', zIndex: 10 }}>
-              <div style={{ fontSize: 'clamp(0.9rem, 3vw, 1.3rem)', color: '#ffffff', textShadow: '1px 1px 4px rgba(0,0,0,0.8)', maxWidth: '900px', margin: '0 auto', lineHeight: 1.8 }}>
+            <div style={{ position: 'absolute', bottom: isSmallScreen ? '10px' : '20px', left: 0, right: 0, textAlign: 'center', padding: '1rem', zIndex: 10 }}>
+              <div style={{ fontSize: 'clamp(0.85rem, 2.5vw, 1.1rem)', color: '#ffffff', textShadow: '1px 1px 4px rgba(0,0,0,0.8)', maxWidth: '100%', margin: '0 auto', lineHeight: 1.5, padding: '0 1rem' }}>
                 <p>
                   We started as a family standing around a folding table with mason jars, smiles, and a goal. It was not just a lemonade stand — it was a shared dream, a way to be together, to hustle together, and to build something beautiful with our own hands.
                 </p>
