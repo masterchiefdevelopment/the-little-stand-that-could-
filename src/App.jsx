@@ -6,6 +6,7 @@ import Order from './pages/Order'
 import Location from './pages/Location'
 import Gallery from './pages/Gallery'
 import Events from './pages/Events'
+import Story from './pages/Story'
 import Account from './pages/Account'
 import Admin from './pages/Admin'
 
@@ -20,6 +21,7 @@ function App() {
         <Route path="/location" element={<Location />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/events" element={<Events />} />
+        <Route path="/story" element={<Story />} />
         <Route path="/account" element={<Account />} />
         <Route path="/admin" element={<Admin />} />
       </Routes>

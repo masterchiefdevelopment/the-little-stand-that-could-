@@ -77,6 +77,21 @@ function Home() {
         </div>
       </section>
 
+      <section className="w-full" style={{ backgroundColor: '#1a1a2e' }}>
+        <div className="mx-auto max-w-6xl px-4 py-10 text-center sm:px-6 sm:py-14">
+          <p className="font-serif text-xl font-bold" style={{ color: '#FFFBEB' }}>
+            Want to know the heart behind the stand?
+          </p>
+          <Link
+            to="/story"
+            className="mt-6 inline-flex rounded-full px-8 py-3 text-sm font-bold tracking-wide transition hover:opacity-90"
+            style={{ backgroundColor: '#FCD34D', color: '#081A33' }}
+          >
+            Read Our Story
+          </Link>
+        </div>
+      </section>
+
       <section className="w-full bg-white">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
           <h2 className="text-center font-serif text-3xl font-bold sm:text-4xl" style={{ color: '#1a1a2e' }}>
