@@ -3,6 +3,7 @@ import Nav from '../components/Nav'
 import Hero from '../components/Hero'
 import Footer from '../components/Footer'
 import { flavors } from '../data/menu'
+import headerPhoto from '/photos/header.jpg'
 
 const whyUs = [
   {
@@ -73,7 +74,11 @@ function Home() {
               </p>
             </div>
           </div>
-          <div className="aspect-square w-full rounded-2xl bg-gray-300 shadow-lg" />
+          <img
+            src={headerPhoto}
+            alt="The Little Stand That Could"
+            style={{ width: '100%', maxHeight: '400px', objectFit: 'cover', borderRadius: '8px' }}
+          />
         </div>
       </section>
 

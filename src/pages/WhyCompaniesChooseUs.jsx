@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import Footer from '../components/Footer'
 import Nav from '../components/Nav'
+import designBg from '/photos/design.jpg'
 
 const trustCards = [
   {
@@ -67,7 +68,15 @@ const trustCards = [
 
 function WhyCompaniesChooseUs() {
   return (
-    <div className="min-h-screen bg-[#1a1a2e] text-[#f5f0e8]">
+    <div
+      className="min-h-screen bg-[#1a1a2e] text-[#f5f0e8]"
+      style={{
+        backgroundImage: `url(${designBg})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed',
+      }}
+    >
       <Nav />
 
       <main className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:py-16">
