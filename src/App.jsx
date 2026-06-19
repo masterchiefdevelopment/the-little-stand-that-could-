@@ -14,19 +14,20 @@ import Admin from './pages/Admin'
 function App() {
   return (
     <BrowserRouter>
-      <VineAnimation />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/menu" element={<Menu />} />
-        <Route path="/order" element={<Order />} />
-        <Route path="/location" element={<Location />} />
-        <Route path="/gallery" element={<Gallery />} />
-        <Route path="/events" element={<Events />} />
-        <Route path="/story" element={<Story />} />
-        <Route path="/test" element={<Test />} />
-        <Route path="/account" element={<Account />} />
-        <Route path="/admin" element={<Admin />} />
-      </Routes>
+      <VineAnimation>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/menu" element={<Menu />} />
+          <Route path="/order" element={<Order />} />
+          <Route path="/location" element={<Location />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/story" element={<Story />} />
+          <Route path="/test" element={<Test />} />
+          <Route path="/account" element={<Account />} />
+          <Route path="/admin" element={<Admin />} />
+        </Routes>
+      </VineAnimation>
     </BrowserRouter>
   )
 }
