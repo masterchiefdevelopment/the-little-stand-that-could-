@@ -101,7 +101,7 @@ function Home() {
       <section
         className="relative w-full overflow-hidden"
         style={{
-          background: 'linear-gradient(135deg, #ffd700 0%, #ffed4e 100%)',
+          backgroundColor: '#ff69b4',
           padding: '4rem 2rem',
           borderRadius: '8px',
           marginTop: '2rem',
@@ -138,9 +138,9 @@ function Home() {
                 width: '100%',
                 display: 'block',
                 borderRadius: '8px',
-                maskImage: 'linear-gradient(to right, transparent 0%, black 2%, black 98%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%)',
+                maskImage: 'linear-gradient(to right, transparent 0%, black 0.5%, black 99.5%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 2%, black 98%, transparent 100%)',
                 maskComposite: 'intersect',
-                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 2%, black 98%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%)',
+                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 0.5%, black 99.5%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 2%, black 98%, transparent 100%)',
                 WebkitMaskComposite: 'source-in',
               }}
             />
@@ -176,13 +176,13 @@ function Home() {
           </div>
 
           <div style={{ marginTop: '2rem', textAlign: 'center' }}>
-            <p className="font-serif text-xl font-bold" style={{ color: '#1a1a2e' }}>
+            <p className="font-serif text-xl font-bold" style={{ color: '#FFF7E5' }}>
               Want to know the heart behind the stand?
             </p>
             <Link
               to="/story"
               className="mt-6 inline-flex rounded-full px-8 py-3 text-sm font-bold tracking-wide transition hover:opacity-90"
-              style={{ backgroundColor: '#FCD34D', color: '#081A33' }}
+              style={{ backgroundColor: '#1a1a2e', color: '#FFF7E5' }}
             >
               Read Our Full Story
             </Link>
