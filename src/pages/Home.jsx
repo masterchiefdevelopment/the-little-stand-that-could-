@@ -98,7 +98,16 @@ function Home() {
         </div>
       </section>
 
-      <section className="relative w-full overflow-hidden" style={{ backgroundColor: '#0A0A0A' }}>
+      <section
+        className="relative w-full overflow-hidden"
+        style={{
+          background: 'linear-gradient(135deg, #ffd700 0%, #ffed4e 100%)',
+          padding: '4rem 2rem',
+          borderRadius: '8px',
+          marginTop: '2rem',
+          marginBottom: '2rem',
+        }}
+      >
         <svg
           className="pointer-events-none absolute -left-6 top-0 hidden h-full w-20 opacity-20 sm:block"
           viewBox="0 0 100 600"
@@ -121,75 +130,63 @@ function Home() {
             padding: 'clamp(1rem, 3vw, 2rem)',
           }}
         >
-          <div
-            style={{
-              borderRadius: '16px',
-              overflow: 'hidden',
-              backgroundColor: '#000000',
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '0.75rem',
-            }}
-          >
-            <div
+          <div style={{ position: 'relative' }}>
+            <img
+              src="/photos/stand.jpg"
+              alt="The Little Stand"
               style={{
-                backgroundColor: 'rgba(0,0,0,0.5)',
-                padding: 'clamp(1rem, 3vw, 2rem)',
-                textAlign: 'center',
+                width: '100%',
+                display: 'block',
+                borderRadius: '8px',
+                maskImage: 'linear-gradient(to right, transparent 0%, black 2%, black 98%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%)',
+                maskComposite: 'intersect',
+                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 2%, black 98%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%)',
+                WebkitMaskComposite: 'source-in',
               }}
-            >
-              <h2
-                className="font-serif text-3xl font-bold sm:text-4xl"
-                style={{ color: '#FFFFFF', textShadow: '0 2px 10px rgba(0,0,0,0.8)' }}
-              >
+            />
+
+            <div style={{ position: 'absolute', top: '20px', left: 0, right: 0, textAlign: 'center', zIndex: 10, padding: '0 2rem' }}>
+              <h2 style={{ fontSize: 'clamp(2.5rem, 8vw, 5rem)', color: '#ffffff', textShadow: '2px 2px 8px rgba(0,0,0,0.8)', margin: 0, lineHeight: 1.2 }}>
                 The Little Stand That Could
               </h2>
-              <p
-                className="mt-3 text-base italic sm:text-lg"
-                style={{ color: '#FFFFFF', textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}
-              >
+              <p style={{ fontSize: 'clamp(1.2rem, 4vw, 1.8rem)', color: '#ffd700', fontStyle: 'italic', textShadow: '1px 1px 4px rgba(0,0,0,0.8)', margin: '10px 0', lineHeight: 1.4 }}>
                 Those who refresh will themselves be refreshed.
               </p>
-              <p className="mt-1 text-sm" style={{ color: '#FCD34D', textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}>
+              <p style={{ fontSize: '1.3rem', color: '#ffd700', textShadow: '1px 1px 4px rgba(0,0,0,0.8)', margin: 0, lineHeight: 1.4 }}>
                 — Proverbs 11:25
               </p>
             </div>
 
-            <img src="/photos/stand.jpg" alt="The Little Stand" style={{ width: '100%', display: 'block' }} />
-
-            <div
-              style={{
-                backgroundColor: 'rgba(0,0,0,0.5)',
-                padding: 'clamp(1rem, 3vw, 2rem)',
-                textAlign: 'center',
-              }}
-            >
-              <p
-                className="mx-auto max-w-4xl text-base leading-relaxed sm:text-lg"
-                style={{ color: '#FFFFFF', textShadow: '0 2px 8px rgba(0,0,0,0.8)' }}
-              >
-                A family-owned business serving fresh-squeezed lemonade made with real fruit and real ingredients. No syrups. No shortcuts.
-              </p>
+            <div style={{ position: 'absolute', bottom: '20px', left: 0, right: 0, textAlign: 'center', padding: '0 2rem', zIndex: 10 }}>
+              <div style={{ fontSize: 'clamp(0.9rem, 3vw, 1.3rem)', color: '#ffffff', textShadow: '1px 1px 4px rgba(0,0,0,0.8)', maxWidth: '900px', margin: '0 auto', lineHeight: 1.8 }}>
+                <p>
+                  We started as a family standing around a folding table with mason jars, smiles, and a goal. It was not just a lemonade stand — it was a shared dream, a way to be together, to hustle together, and to build something beautiful with our own hands.
+                </p>
+                <p className="mt-3">
+                  Today, The Little Stand That Could is a family-owned business serving fresh-squeezed lemonade made with real fruit and real ingredients. No syrups. No shortcuts.
+                </p>
+                <p className="mt-3">
+                  More than lemonade, our mission is to create a place where people can gather, connect, and experience the love of Jesus through community, kindness, and service. Every lemonade purchased helps support our family and the events we host for our community.
+                </p>
+                <p className="mt-3" style={{ color: '#ffd700' }}>
+                  Those who refresh others will themselves be refreshed. — Proverbs 11:25
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
 
-      <section className="w-full" style={{ backgroundColor: '#1a1a2e' }}>
-        <div
-          className="responsive-container responsive-text-section text-center"
-          style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(1rem, 3vw, 2rem)' }}
-        >
-          <p className="font-serif text-xl font-bold" style={{ color: '#FFFBEB' }}>
-            Want to know the heart behind the stand?
-          </p>
-          <Link
-            to="/story"
-            className="mt-6 inline-flex rounded-full px-8 py-3 text-sm font-bold tracking-wide transition hover:opacity-90"
-            style={{ backgroundColor: '#FCD34D', color: '#081A33' }}
-          >
-            Read Our Story
-          </Link>
+          <div style={{ marginTop: '2rem', textAlign: 'center' }}>
+            <p className="font-serif text-xl font-bold" style={{ color: '#1a1a2e' }}>
+              Want to know the heart behind the stand?
+            </p>
+            <Link
+              to="/story"
+              className="mt-6 inline-flex rounded-full px-8 py-3 text-sm font-bold tracking-wide transition hover:opacity-90"
+              style={{ backgroundColor: '#FCD34D', color: '#081A33' }}
+            >
+              Read Our Full Story
+            </Link>
+          </div>
         </div>
       </section>
 
