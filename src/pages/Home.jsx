@@ -191,6 +191,40 @@ function Home() {
         </svg>
       </section>
 
+      <section className="w-full bg-white">
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
+          <div className="grid gap-6 sm:grid-cols-3">
+            <Link
+              to="/community-impact"
+              className="flex flex-col items-center rounded-2xl bg-gradient-to-br from-[#FCD34D] to-[#F4A460] p-8 text-center shadow-md transition-transform hover:scale-105"
+              style={{ color: '#1a1a2e' }}
+            >
+              <div className="text-4xl mb-4">🤝</div>
+              <h3 className="text-2xl font-bold">Community Impact</h3>
+              <p className="mt-3 text-sm font-semibold">See how we give back to San Antonio</p>
+            </Link>
+            <Link
+              to="/upcoming-events"
+              className="flex flex-col items-center rounded-2xl bg-gradient-to-br from-[#FCD34D] to-[#F4A460] p-8 text-center shadow-md transition-transform hover:scale-105"
+              style={{ color: '#1a1a2e' }}
+            >
+              <div className="text-4xl mb-4">📅</div>
+              <h3 className="text-2xl font-bold">Upcoming Events</h3>
+              <p className="mt-3 text-sm font-semibold">Find us at local events and markets</p>
+            </Link>
+            <Link
+              to="/reviews"
+              className="flex flex-col items-center rounded-2xl bg-gradient-to-br from-[#FCD34D] to-[#F4A460] p-8 text-center shadow-md transition-transform hover:scale-105"
+              style={{ color: '#1a1a2e' }}
+            >
+              <div className="text-4xl mb-4">⭐</div>
+              <h3 className="text-2xl font-bold">Customer Reviews</h3>
+              <p className="mt-3 text-sm font-semibold">Hear what people are saying</p>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </div>
   )
