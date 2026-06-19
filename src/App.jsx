@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import VineAnimation from './components/VineAnimation'
 import Home from './pages/Home'
 import Menu from './pages/Menu'
 import Order from './pages/Order'
@@ -11,6 +12,7 @@ import Admin from './pages/Admin'
 function App() {
   return (
     <BrowserRouter>
+      <VineAnimation />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/menu" element={<Menu />} />
