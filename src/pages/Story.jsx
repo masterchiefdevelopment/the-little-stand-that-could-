@@ -8,7 +8,10 @@ function Story() {
       <Nav />
 
       <section className="w-full" style={{ backgroundColor: '#081A33' }}>
-        <div className="mx-auto max-w-5xl px-4 py-20 sm:px-6 sm:py-24 text-center">
+        <div
+          className="responsive-container responsive-text-section text-center"
+          style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(1rem, 3vw, 2rem)' }}
+        >
           <p className="text-sm font-semibold uppercase tracking-[0.3em]" style={{ color: '#FCD34D' }}>
             Our story
           </p>
@@ -23,7 +26,10 @@ function Story() {
       </section>
 
       <section className="w-full" style={{ backgroundColor: '#0E264C' }}>
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
+        <div
+          className="responsive-container responsive-text-section"
+          style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(1rem, 3vw, 2rem)' }}
+        >
           <div className="space-y-10">
             <article>
               <h2 className="font-serif text-3xl font-bold" style={{ color: '#FFF7E5' }}>
@@ -73,7 +79,10 @@ function Story() {
       </section>
 
       <section className="w-full" style={{ backgroundColor: '#081A33' }}>
-        <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-20 text-center">
+        <div
+          className="responsive-container responsive-text-section text-center"
+          style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(1rem, 3vw, 2rem)' }}
+        >
           <p className="font-serif text-3xl font-bold" style={{ color: '#FFF7E5' }}>
             Ready to bring our story to your event?
           </p>

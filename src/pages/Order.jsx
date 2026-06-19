@@ -140,8 +140,11 @@ function Order() {
     return (
       <div style={{ backgroundColor: '#FFFBEB' }}>
         <Nav />
-      <div className="flex min-h-[70vh] w-full items-center justify-center" style={{ backgroundColor: '#FFFBEB' }}>
-        <div className="mx-auto max-w-lg rounded-2xl p-8 text-center shadow-lg" style={{ backgroundColor: '#fff' }}>
+      <div
+        className="responsive-container responsive-text-section flex min-h-[70vh] w-full items-center justify-center"
+        style={{ backgroundColor: '#FFFBEB', maxWidth: '1200px', margin: '0 auto', padding: 'clamp(1rem, 3vw, 2rem)' }}
+      >
+        <div className="mx-auto max-w-lg rounded-2xl text-center shadow-lg" style={{ backgroundColor: '#fff', padding: 'clamp(1rem, 4vw, 2rem)' }}>
           <h1 className="font-serif text-3xl font-bold" style={{ color: '#0B1F3A' }}>
             Your order is confirmed! 🍋
           </h1>
@@ -200,7 +203,10 @@ function Order() {
     <div style={{ backgroundColor: '#FFFBEB' }}>
       <Nav />
       <section className="w-full" style={{ backgroundColor: '#0B1F3A' }}>
-        <div className="mx-auto max-w-6xl px-4 py-10 text-center sm:px-6">
+        <div
+          className="responsive-container responsive-hero text-center"
+          style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(1.5rem, 5vw, 3rem)' }}
+        >
           <h1 className="font-serif text-3xl font-bold sm:text-4xl" style={{ color: '#FFFBEB' }}>
             Order Online
           </h1>
@@ -210,7 +216,10 @@ function Order() {
         </div>
       </section>
 
-      <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-12">
+      <div
+        className="responsive-container responsive-card-container"
+        style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(1rem, 4vw, 2rem)' }}
+      >
         <div className="flex items-center justify-center gap-2 sm:gap-4">
           {[
             { id: 1, label: 'Flavor' },
@@ -235,7 +244,11 @@ function Order() {
           ))}
         </div>
 
-        <form onSubmit={handleSubmit} className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-3">
+        <form
+          onSubmit={handleSubmit}
+          className="mt-8 grid grid-cols-1 lg:grid-cols-3"
+          style={{ gap: 'clamp(1rem, 4vw, 2rem)' }}
+        >
           <div className="lg:col-span-2">
             {step === 1 && (
               <div>
@@ -447,8 +460,8 @@ function Order() {
 
           <div className="lg:sticky lg:top-24 lg:self-start">
             <div
-              className="sticky bottom-0 rounded-2xl p-6 shadow-lg lg:static"
-              style={{ backgroundColor: '#FCE5F0' }}
+              className="sticky bottom-0 rounded-2xl shadow-lg lg:static"
+              style={{ backgroundColor: '#FCE5F0', padding: 'clamp(1rem, 4vw, 2rem)' }}
             >
               <h3 className="font-serif text-xl font-bold" style={{ color: '#0B1F3A' }}>
                 Order Summary

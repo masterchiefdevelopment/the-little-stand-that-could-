@@ -8,7 +8,10 @@ function Menu() {
     <div style={{ backgroundColor: '#FFFBEB' }}>
       <Nav />
       <section className="w-full" style={{ backgroundColor: '#0B1F3A' }}>
-        <div className="mx-auto max-w-3xl px-4 py-16 text-center sm:px-6 sm:py-20">
+        <div
+          className="responsive-container responsive-hero text-center"
+          style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(1.5rem, 5vw, 3rem)' }}
+        >
           <h1 className="font-serif text-4xl font-bold sm:text-5xl" style={{ color: '#FFFBEB' }}>
             11 Fresh Flavors
           </h1>
@@ -19,7 +22,10 @@ function Menu() {
       </section>
 
       <section className="w-full" style={{ backgroundColor: '#FFFBEB' }}>
-        <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
+        <div
+          className="responsive-container responsive-card-container"
+          style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(1rem, 4vw, 2rem)' }}
+        >
           <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
             {flavors.map((flavor, index) => (
               <div
@@ -40,7 +46,10 @@ function Menu() {
       </section>
 
       <section className="w-full" style={{ backgroundColor: '#FFFBEB' }}>
-        <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
+        <div
+          className="responsive-container responsive-card-container"
+          style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(1rem, 4vw, 2rem)' }}
+        >
           <h2 className="text-center font-serif text-2xl font-bold sm:text-3xl" style={{ color: '#0B1F3A' }}>
             Add-Ons
           </h2>
@@ -64,7 +73,10 @@ function Menu() {
       </section>
 
       <section className="w-full" style={{ backgroundColor: '#FFFBEB' }}>
-        <div className="mx-auto flex max-w-6xl justify-center px-4 py-12 sm:px-6 sm:py-16">
+        <div
+          className="responsive-container responsive-text-section flex justify-center"
+          style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(1rem, 3vw, 2rem)' }}
+        >
           <Link
             to="/order"
             className="w-full rounded-lg px-8 py-3 text-center text-sm font-bold transition-colors hover:opacity-90 sm:w-auto"

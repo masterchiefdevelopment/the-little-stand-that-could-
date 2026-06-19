@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { useEffect } from 'react'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import VineAnimation from './components/VineAnimation'
 import Home from './pages/Home'
 import Menu from './pages/Menu'
@@ -15,27 +16,39 @@ import CommunityImpact from './pages/CommunityImpact'
 import UpcomingEvents from './pages/UpcomingEvents'
 import Reviews from './pages/Reviews'
 
+function AppContent() {
+  const location = useLocation()
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [location.pathname])
+
+  return (
+    <VineAnimation>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/menu" element={<Menu />} />
+        <Route path="/order" element={<Order />} />
+        <Route path="/location" element={<Location />} />
+        <Route path="/gallery" element={<Gallery />} />
+        <Route path="/events" element={<Events />} />
+        <Route path="/why-companies-choose-us" element={<WhyCompaniesChooseUs />} />
+        <Route path="/community-impact" element={<CommunityImpact />} />
+        <Route path="/upcoming-events" element={<UpcomingEvents />} />
+        <Route path="/reviews" element={<Reviews />} />
+        <Route path="/story" element={<Story />} />
+        <Route path="/test" element={<Test />} />
+        <Route path="/account" element={<Account />} />
+        <Route path="/admin" element={<Admin />} />
+      </Routes>
+    </VineAnimation>
+  )
+}
+
 function App() {
   return (
     <BrowserRouter>
-      <VineAnimation>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/menu" element={<Menu />} />
-          <Route path="/order" element={<Order />} />
-          <Route path="/location" element={<Location />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/events" element={<Events />} />
-          <Route path="/why-companies-choose-us" element={<WhyCompaniesChooseUs />} />
-          <Route path="/community-impact" element={<CommunityImpact />} />
-          <Route path="/upcoming-events" element={<UpcomingEvents />} />
-          <Route path="/reviews" element={<Reviews />} />
-          <Route path="/story" element={<Story />} />
-          <Route path="/test" element={<Test />} />
-          <Route path="/account" element={<Account />} />
-          <Route path="/admin" element={<Admin />} />
-        </Routes>
-      </VineAnimation>
+      <AppContent />
     </BrowserRouter>
   )
 }

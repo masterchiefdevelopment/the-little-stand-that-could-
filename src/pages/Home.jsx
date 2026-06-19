@@ -29,13 +29,13 @@ function Home() {
       <Nav />
 
       <section
-        className="relative w-full overflow-hidden"
+        className="relative w-full overflow-hidden responsive-hero"
         style={{
           backgroundImage: "url('/photos/header.jpg')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed',
-          padding: '6rem 2rem',
+          padding: 'clamp(1.5rem, 5vw, 3rem)',
           textAlign: 'center',
           position: 'relative',
           minHeight: '500px',
@@ -61,7 +61,10 @@ function Home() {
           />
         </svg>
 
-        <div className="relative z-10 mx-auto flex max-w-3xl flex-col items-center px-6 text-center">
+        <div
+          className="relative z-10 responsive-container responsive-scale flex flex-col items-center text-center"
+          style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(1rem, 3vw, 2rem)' }}
+        >
           <h1 className="font-serif text-4xl font-bold leading-tight text-white sm:text-6xl">
             Fresh-Squeezed. Real Fruit. No Syrups Ever.
           </h1>
@@ -111,9 +114,12 @@ function Home() {
         </svg>
 
         <div
-          className="relative z-10 mx-auto grid max-w-6xl grid-cols-1 px-4 py-16 sm:px-6 sm:py-20 md:grid-cols-2"
+          className="relative z-10 responsive-container responsive-pad responsive-gap grid grid-cols-1 md:grid-cols-2"
           style={{
-            gap: '2rem',
+            maxWidth: '1200px',
+            margin: '0 auto',
+            padding: 'clamp(1rem, 3vw, 2rem)',
+            gap: 'clamp(1rem, 4vw, 2rem)',
             alignItems: 'center',
           }}
         >
@@ -149,7 +155,10 @@ function Home() {
       </section>
 
       <section className="w-full" style={{ backgroundColor: '#1a1a2e' }}>
-        <div className="mx-auto max-w-6xl px-4 py-10 text-center sm:px-6 sm:py-14">
+        <div
+          className="responsive-container responsive-text-section text-center"
+          style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(1rem, 3vw, 2rem)' }}
+        >
           <p className="font-serif text-xl font-bold" style={{ color: '#FFFBEB' }}>
             Want to know the heart behind the stand?
           </p>
@@ -164,7 +173,10 @@ function Home() {
       </section>
 
       <section className="w-full bg-white">
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
+        <div
+          className="responsive-container responsive-card-container"
+          style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(1rem, 4vw, 2rem)' }}
+        >
           <h2 className="text-center font-serif text-3xl font-bold sm:text-4xl" style={{ color: '#1a1a2e' }}>
             Why Choose Us?
           </h2>
@@ -195,7 +207,10 @@ function Home() {
       </section>
 
       <section className="w-full" style={{ backgroundColor: '#FFFBEB' }}>
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
+        <div
+          className="responsive-container responsive-card-container"
+          style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(1rem, 4vw, 2rem)' }}
+        >
           <h2 className="text-center font-serif text-3xl font-bold sm:text-4xl" style={{ color: '#1a1a2e' }}>
             11 Fresh Flavors
           </h2>
@@ -235,7 +250,10 @@ function Home() {
       </section>
 
       <section className="relative w-full overflow-hidden" style={{ backgroundColor: '#FCD34D' }}>
-        <div className="relative z-10 mx-auto flex max-w-3xl flex-col items-center px-4 py-16 text-center sm:px-6 sm:py-20">
+        <div
+          className="relative z-10 responsive-container responsive-text-section flex flex-col items-center text-center"
+          style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(1rem, 3vw, 2rem)' }}
+        >
           <h2 className="font-serif text-3xl font-bold sm:text-4xl" style={{ color: '#1a1a2e' }}>
             Ready to refresh?
           </h2>
@@ -263,7 +281,10 @@ function Home() {
       </section>
 
       <section className="w-full bg-white">
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
+        <div
+          className="responsive-container responsive-card-container"
+          style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(1rem, 4vw, 2rem)' }}
+        >
           <div className="grid gap-6 sm:grid-cols-3">
             <Link
               to="/community-impact"
