@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import Footer from '../components/Footer'
 import Nav from '../components/Nav'
-import designBg from '/photos/design.jpg'
 
 const trustCards = [
   {
@@ -71,7 +70,7 @@ function WhyCompaniesChooseUs() {
     <div
       className="min-h-screen bg-[#1a1a2e] text-[#f5f0e8]"
       style={{
-        backgroundImage: `url(${designBg})`,
+        backgroundImage: "url('/photos/design.jpg')",
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed',
@@ -84,10 +83,26 @@ function WhyCompaniesChooseUs() {
           <p className="mb-4 text-sm font-semibold uppercase tracking-[0.28em] text-[#FCD34D]">
             Built for corporate catering
           </p>
-          <h1 className="mx-auto max-w-3xl text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
+          <h1
+            className="mx-auto max-w-3xl text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl"
+            style={{
+              textShadow: '2px 2px 8px rgba(0,0,0,0.8)',
+              color: '#ffffff',
+              fontWeight: 'bold',
+              fontSize: '3rem',
+            }}
+          >
             Why Companies Choose Us For Events & Catering
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-[#E9E2D0] sm:text-lg">
+          <p
+            className="mx-auto mt-6 max-w-2xl text-base leading-8 text-[#E9E2D0] sm:text-lg"
+            style={{
+              textShadow: '1px 1px 4px rgba(0,0,0,0.7)',
+              color: '#ffffff',
+              fontSize: '1.1rem',
+              lineHeight: '1.6',
+            }}
+          >
             Corporate planners trust our team because we marry professional operations with thoughtful service. From permits and insurance to clear communication, we deliver dependable catering for events that matter.
           </p>
         </section>
@@ -101,8 +116,15 @@ function WhyCompaniesChooseUs() {
               <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 text-[#FCD34D]">
                 {card.icon}
               </div>
-              <h2 className="mb-3 text-xl font-semibold">{card.title}</h2>
-              <p className="text-sm leading-7 text-[#EEE7D9]">{card.description}</p>
+              <h2 className="mb-3 text-xl font-semibold" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.5)', color: '#ffffff' }}>
+                {card.title}
+              </h2>
+              <p
+                className="text-sm leading-7 text-[#EEE7D9]"
+                style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.5)', color: '#ffffff' }}
+              >
+                {card.description}
+              </p>
             </article>
           ))}
         </section>

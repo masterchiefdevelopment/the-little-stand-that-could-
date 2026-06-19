@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
-import socialEventPhoto from '/photos/social_event.jpg'
 
 function Story() {
   return (
@@ -19,11 +18,12 @@ function Story() {
           <p className="mx-auto mt-6 max-w-2xl text-base leading-8" style={{ color: '#E8D8B0' }}>
             A family story rooted in faith, service, and a simple stand that became a blessing for our community.
           </p>
+          <img src="/photos/event.jpg" alt="Community event" style={{ width: '100%', borderRadius: '8px', marginTop: '2rem', marginBottom: '2rem' }} />
         </div>
       </section>
 
       <section className="w-full" style={{ backgroundColor: '#0E264C' }}>
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20 grid gap-16 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
           <div className="space-y-10">
             <article>
               <h2 className="font-serif text-3xl font-bold" style={{ color: '#FFF7E5' }}>
@@ -68,28 +68,6 @@ function Story() {
                 family would expect.
               </p>
             </article>
-          </div>
-
-          <div className="space-y-8">
-            <img
-              src={socialEventPhoto}
-              alt="Community gathering"
-              style={{ width: '100%', borderRadius: '8px', marginTop: '1.5rem' }}
-            />
-
-            <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 shadow-xl shadow-black/20">
-              <div className="rounded-3xl bg-[#112B58] p-6 text-center">
-                <div className="mx-auto mb-6 h-64 rounded-3xl border-2 border-dashed border-white/30 bg-white/5 flex items-center justify-center">
-                  <span className="text-sm uppercase tracking-[0.3em] text-white/60">
-                    Family photo placeholder
-                  </span>
-                </div>
-                <p className="text-base leading-7 text-[#D9D1B2]">
-                  A warm family photo will go here. For now, this space holds our story and reminds us that every
-                  part of our journey is built together.
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
