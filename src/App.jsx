@@ -11,6 +11,7 @@ import Test from './pages/Test'
 import Account from './pages/Account'
 import Admin from './pages/Admin'
 import WhyCompaniesChooseUs from './pages/WhyCompaniesChooseUs'
+import CommunityImpact from './pages/CommunityImpact'
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/events" element={<Events />} />
           <Route path="/why-companies-choose-us" element={<WhyCompaniesChooseUs />} />
+          <Route path="/community-impact" element={<CommunityImpact />} />
           <Route path="/story" element={<Story />} />
           <Route path="/test" element={<Test />} />
           <Route path="/account" element={<Account />} />
