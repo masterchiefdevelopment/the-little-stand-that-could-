@@ -144,13 +144,20 @@ function Home() {
               </div>
             ))}
           </div>
-          <div className="mt-10 flex justify-center">
+          <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
               to="/menu"
               className="w-full rounded-lg px-8 py-3 text-center text-sm font-bold transition-colors hover:opacity-90 sm:w-auto"
               style={{ backgroundColor: '#1a1a2e', color: '#FFFBEB' }}
             >
               See Full Menu
+            </Link>
+            <Link
+              to="/why-companies-choose-us"
+              className="w-full rounded-lg px-8 py-3 text-center text-sm font-bold transition-colors hover:opacity-90 sm:w-auto"
+              style={{ backgroundColor: '#FCD34D', color: '#081A33' }}
+            >
+              Why Companies Choose Us
             </Link>
           </div>
         </div>
