@@ -31,7 +31,7 @@ function Home() {
       <section
         className="relative w-full overflow-hidden"
         style={{
-          backgroundImage: "url('/photos/stand.jpg')",
+          backgroundImage: "url('/photos/header.jpg')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed',
@@ -110,7 +110,13 @@ function Home() {
           />
         </svg>
 
-        <div className="relative z-10 mx-auto grid max-w-6xl grid-cols-1 items-center gap-10 px-4 py-16 sm:px-6 sm:py-20 md:grid-cols-2">
+        <div
+          className="relative z-10 mx-auto grid max-w-6xl grid-cols-1 px-4 py-16 sm:px-6 sm:py-20 md:grid-cols-2"
+          style={{
+            gap: '2rem',
+            alignItems: 'center',
+          }}
+        >
           <div>
             <h2 className="font-serif text-3xl font-bold sm:text-4xl" style={{ color: '#1a1a2e' }}>
               The Little Stand That Could
@@ -138,6 +144,7 @@ function Home() {
               </p>
             </div>
           </div>
+          <img src="/photos/stand.jpg" alt="The Little Stand" style={{ width: '100%', borderRadius: '8px' }} />
         </div>
       </section>
 
