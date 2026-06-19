@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
+import standPhoto from '/photos/stand.jpg'
+import socialPhoto from '/photos/social_event.jpg'
 
 function Story() {
   return (
@@ -70,28 +72,9 @@ function Story() {
           </div>
 
           <div className="space-y-8">
-            <div className="rounded-[2rem] border border-white/10 bg-white/5 p-8 shadow-xl shadow-black/20">
-              <div className="rounded-3xl bg-[#112B58] p-6 text-center">
-                <div className="mx-auto mb-6 h-64 rounded-3xl border-2 border-dashed border-white/30 bg-white/5 flex items-center justify-center">
-                  <span className="text-sm uppercase tracking-[0.3em] text-white/60">
-                    Family photo placeholder
-                  </span>
-                </div>
-                <p className="text-base leading-7 text-[#D9D1B2]">
-                  A warm family photo will go here. For now, this space holds our story and reminds us that every
-                  part of our journey is built together.
-                </p>
-              </div>
-            </div>
+            <img src={standPhoto} alt="Family stand" style={{ width: '100%', borderRadius: '8px', marginTop: '2rem' }} />
 
-            <div className="rounded-3xl bg-[#FCD34D] p-8 text-center shadow-lg shadow-black/10">
-              <p className="font-serif text-xl font-semibold text-[#0F1B3A]">
-                "Those who refresh others will be refreshed."
-              </p>
-              <p className="mt-4 text-sm leading-7 text-[#1B2A49]">
-                Proverbs 11:25 — a reminder that blessing others is also how we are blessed back.
-              </p>
-            </div>
+            <img src={socialPhoto} alt="Family together" style={{ width: '100%', borderRadius: '8px', marginTop: '2rem' }} />
           </div>
         </div>
       </section>
