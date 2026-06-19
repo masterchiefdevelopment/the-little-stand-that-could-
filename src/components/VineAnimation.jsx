@@ -13,13 +13,11 @@ function seededRandom(seed) {
 function generateLeaves(count, seed, along) {
   const random = seededRandom(seed)
   const leaves = []
-
   for (let i = 0; i < count; i++) {
     const t = i / (count - 1)
     const jitter = (random() - 0.5) * 0.06
     const position = Math.min(1, Math.max(0, t + jitter))
     const { x, y } = along(position)
-
     leaves.push({
       id: `${seed}-${i}`,
       x,
@@ -31,7 +29,6 @@ function generateLeaves(count, seed, along) {
       delay: random() * 4,
     })
   }
-
   return leaves
 }
 
@@ -54,32 +51,40 @@ function Leaf({ x, y, size, rotation, color, flip, delay }) {
 }
 
 function VineBorder({ orientation, leaves, stemPath, intensity }) {
-  const isHorizontal = orientation === 'top' || orientation === 'bottom'
-
-  const positionStyle = {
-    top: { top: 0, left: 0, width: '100%', height: 70 },
-    bottom: { bottom: 0, left: 0, width: '100%', height: 70 },
-    left: { top: 0, left: 0, width: 70, height: '100%' },
-    right: { top: 0, right: 0, width: 70, height: '100%' },
-  }[orientation]
-
-  const viewBox = isHorizontal ? '0 0 1200 70' : '0 0 70 1200'
-
+  const getDimensions = () => {
+    switch (orientation) {
+      case 'top': return { width: '100%', height: '80px' }
+      case 'bottom': return { width: '100%', height: '80px' }
+      case 'left': return { width: '80px', height: '100vh' }
+      case 'right': return { width: '80px', height: '100vh' }
+      default: return { width: '100%', height: '80px' }
+    }
+  }
+  const getPosition = () => {
+    switch (orientation) {
+      case 'top': return { position: 'fixed', top: 0, left: 0, zIndex: 10 }
+      case 'bottom': return { position: 'fixed', bottom: 0, left: 0, zIndex: 10 }
+      case 'left': return { position: 'fixed', top: 0, left: 0, zIndex: 10 }
+      case 'right': return { position: 'fixed', top: 0, right: 0, zIndex: 10 }
+      default: return { position: 'fixed', top: 0, left: 0, zIndex: 10 }
+    }
+  }
+  const dims = getDimensions()
+  const pos = getPosition()
   return (
     <svg
       className="vine-border"
-      viewBox={viewBox}
-      preserveAspectRatio="none"
-      pointerEvents="none"
       style={{
-        position: 'fixed',
-        zIndex: 40,
-        ...positionStyle,
+        ...pos,
+        ...dims,
+        overflow: 'visible',
+        pointerEvents: 'none',
+        filter: `brightness(${1 - intensity * 0.1})`,
         '--vine-intensity': intensity,
       }}
-      aria-hidden="true"
+      viewBox={orientation === 'top' || orientation === 'bottom' ? '0 0 1200 80' : '0 0 80 1200'}
     >
-      <path d={stemPath} stroke="#4B7C3F" strokeWidth="2.5" fill="none" opacity="0.55" />
+      <path d={stemPath} stroke="#3A5C30" strokeWidth="1.5" fill="none" opacity="0.6" />
       {leaves.map((leaf) => (
         <Leaf key={leaf.id} {...leaf} />
       ))}
@@ -87,26 +92,22 @@ function VineBorder({ orientation, leaves, stemPath, intensity }) {
   )
 }
 
-function VineAnimation() {
+function VineAnimation({ children }) {
   const [intensity, setIntensity] = useState(0)
   const lastScrollY = useRef(0)
   const decayTimeout = useRef(null)
 
   useEffect(() => {
     lastScrollY.current = window.scrollY
-
     function handleScroll() {
       const currentScrollY = window.scrollY
       const delta = Math.abs(currentScrollY - lastScrollY.current)
       lastScrollY.current = currentScrollY
-
       const newIntensity = Math.min(1, delta / 40)
       setIntensity((prev) => Math.max(prev, newIntensity))
-
       if (decayTimeout.current) clearTimeout(decayTimeout.current)
       decayTimeout.current = setTimeout(() => setIntensity(0), 350)
     }
-
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => {
       window.removeEventListener('scroll', handleScroll)
@@ -178,6 +179,9 @@ function VineAnimation() {
       <VineBorder orientation="bottom" leaves={bottomLeaves} stemPath={bottomStem} intensity={intensity} />
       <VineBorder orientation="left" leaves={leftLeaves} stemPath={leftStem} intensity={intensity} />
       <VineBorder orientation="right" leaves={rightLeaves} stemPath={rightStem} intensity={intensity} />
+      <div style={{ position: 'relative', zIndex: 20, width: '100%' }}>
+        {children}
+      </div>
     </>
   )
 }
