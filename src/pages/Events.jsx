@@ -7,7 +7,6 @@ const initialState = {
   eventDate: '',
   guestCount: '',
   eventLocation: '',
-  serviceTier: 'Starter ($700 + $100/mo)',
   fullName: '',
   email: '',
   phone: '',
@@ -113,20 +112,6 @@ function Events() {
               </label>
             </div>
 
-            <label className="block">
-              <span className="mb-2 block text-sm font-semibold text-[#F5E9D5]">Service Tier</span>
-              <select
-                name="serviceTier"
-                value={formData.serviceTier}
-                onChange={handleChange}
-                className="w-full rounded-2xl border border-white/10 bg-[#0f172a] px-4 py-3 text-sm text-[#f5f0e8] outline-none transition focus:border-[#FCD34D] focus:ring-2 focus:ring-[#FCD34D]/30"
-              >
-                <option>Starter ($700 + $100/mo)</option>
-                <option>Standard ($1,000 + $150/mo)</option>
-                <option>Premium ($1,400 + $200/mo)</option>
-              </select>
-            </label>
-
             <div className="grid gap-6 lg:grid-cols-2">
               <label className="block">
                 <span className="mb-2 block text-sm font-semibold text-[#F5E9D5]">Full Name</span>
@@ -194,7 +179,7 @@ function Events() {
               type="submit"
               className="inline-flex justify-center rounded-full bg-[#FCD34D] px-8 py-3 text-sm font-semibold text-[#081A33] transition hover:bg-[#e3c30d]"
             >
-              Get Your Quote
+              Request Quote
             </button>
           </form>
         </section>
