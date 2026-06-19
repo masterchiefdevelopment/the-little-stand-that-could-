@@ -38,36 +38,53 @@ function Story() {
         </div>
       </section>
 
-      <section className="w-full" style={{ backgroundColor: '#102B57' }}>
+      <section className="w-full" style={{ backgroundColor: '#0E264C' }}>
         <div
           className="responsive-container responsive-text-section"
           style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(1rem, 3vw, 2rem)' }}
         >
-          <div
-            className="mx-auto"
-            style={{
-              maxWidth: '900px',
-              backgroundColor: 'rgba(0,0,0,0.35)',
-              border: '1px solid rgba(255,255,255,0.12)',
-              borderRadius: '14px',
-              padding: 'clamp(1rem, 3vw, 2rem)',
-            }}
-          >
-            <h2 className="font-serif text-2xl font-bold sm:text-3xl" style={{ color: '#FFF7E5' }}>
-              Where Purpose Took Root
-            </h2>
-            <div className="mt-4 space-y-4 text-base leading-8" style={{ color: '#E8D8B0' }}>
-              <p>
-                We started with a simple lemonade stand and a dream. What began as a small family hustle quickly
-                became something much bigger. Along the way, we found faith, community, and purpose.
+          <div style={{ maxWidth: '800px', margin: '2rem auto', padding: '0 1rem' }}>
+            <div style={{ marginBottom: '2rem' }}>
+              <h2 className="font-serif text-2xl font-bold sm:text-3xl" style={{ color: '#ff69b4' }}>
+                Family Origins
+              </h2>
+              <p className="mt-4 leading-8" style={{ color: '#E8D8B0' }}>
+                We started as a family standing around a folding table with mason jars, smiles, and a goal.
+                It was not just a lemonade stand — it was a shared dream, a way to be together, to hustle
+                together, and to build something beautiful with our own hands.
               </p>
-              <p>
-                Today, The Little Stand That Could is a family-owned business serving fresh-squeezed lemonade made
-                with real fruit and real ingredients. No syrups. No shortcuts.
+            </div>
+
+            <div style={{ marginBottom: '2rem' }}>
+              <h2 className="font-serif text-2xl font-bold sm:text-3xl" style={{ color: '#ff69b4' }}>
+                Finding Faith
+              </h2>
+              <p className="mt-4 leading-8" style={{ color: '#E8D8B0' }}>
+                Along the way, Jesus met our family right where we were. Faith changed the way we saw our
+                business, from making money to making a difference. We learned that the best serving is
+                loving well, and that every cup of lemonade can carry a message of hope.
               </p>
-              <p>
-                More than lemonade, our mission is to create a place where people can gather, connect, and experience
-                the love of Jesus through community, kindness, and service.
+            </div>
+
+            <div style={{ marginBottom: '2rem' }}>
+              <h2 className="font-serif text-2xl font-bold sm:text-3xl" style={{ color: '#ff69b4' }}>
+                Proverbs 11:25 Deep Dive
+              </h2>
+              <p className="mt-4 leading-8" style={{ color: '#E8D8B0' }}>
+                "Those who refresh others will be refreshed." For our family, that verse became a promise.
+                When we share kindness, faith, and generosity, we are also renewed. Every event we serve is
+                an invitation to refresh the people around us and to be refreshed in return.
+              </p>
+            </div>
+
+            <div style={{ marginBottom: '2rem' }}>
+              <h2 className="font-serif text-2xl font-bold sm:text-3xl" style={{ color: '#ff69b4' }}>
+                Community Mission
+              </h2>
+              <p className="mt-4 leading-8" style={{ color: '#E8D8B0' }}>
+                Our mission is simple: serve San Antonio with warm hearts, honest drinks, and community-first
+                energy. We want every event to feel personal, welcoming, and full of the same care our own
+                family would expect.
               </p>
             </div>
           </div>
@@ -96,59 +113,6 @@ function Story() {
                 />
               </figure>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="w-full" style={{ backgroundColor: '#0E264C' }}>
-        <div
-          className="responsive-container responsive-text-section"
-          style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(1rem, 3vw, 2rem)' }}
-        >
-          <div className="space-y-10">
-            <article>
-              <h2 className="font-serif text-3xl font-bold" style={{ color: '#FFF7E5' }}>
-                Family origins
-              </h2>
-              <p className="mt-4 max-w-2xl leading-8" style={{ color: '#E8D8B0' }}>
-                We started as a family standing around a folding table with mason jars, smiles, and a goal.
-                It was not just a lemonade stand — it was a shared dream, a way to be together, to hustle
-                together, and to build something beautiful with our own hands.
-              </p>
-            </article>
-
-            <article>
-              <h2 className="font-serif text-3xl font-bold" style={{ color: '#FFF7E5' }}>
-                Finding faith
-              </h2>
-              <p className="mt-4 max-w-2xl leading-8" style={{ color: '#E8D8B0' }}>
-                Along the way, Jesus met our family right where we were. Faith changed the way we saw our
-                business, from making money to making a difference. We learned that the best serving is
-                loving well, and that every cup of lemonade can carry a message of hope.
-              </p>
-            </article>
-
-            <article>
-              <h2 className="font-serif text-3xl font-bold" style={{ color: '#FFF7E5' }}>
-                Proverbs 11:25 deep dive
-              </h2>
-              <p className="mt-4 max-w-2xl leading-8" style={{ color: '#E8D8B0' }}>
-                "Those who refresh others will be refreshed." For our family, that verse became a promise.
-                When we share kindness, faith, and generosity, we are also renewed. Every event we serve is
-                an invitation to refresh the people around us and to be refreshed in return.
-              </p>
-            </article>
-
-            <article>
-              <h2 className="font-serif text-3xl font-bold" style={{ color: '#FFF7E5' }}>
-                Community mission
-              </h2>
-              <p className="mt-4 max-w-2xl leading-8" style={{ color: '#E8D8B0' }}>
-                Our mission is simple: serve San Antonio with warm hearts, honest drinks, and community-first
-                energy. We want every event to feel personal, welcoming, and full of the same care our own
-                family would expect.
-              </p>
-            </article>
           </div>
         </div>
       </section>
