@@ -94,6 +94,31 @@ function Home() {
       {/* ===== WHY CHOOSE US — ROTATING WHEEL ===== */}
       <WhyWheel />
 
+      {/* ===== CORPORATE HOOK ===== */}
+      <section className="w-full px-5 py-10">
+        <div
+          className="mx-auto max-w-3xl rounded-3xl p-8 text-center shadow-lg"
+          style={{ backgroundColor: '#081A33' }}
+        >
+          <p className="text-xs font-bold uppercase tracking-[0.25em]" style={{ color: '#FCD34D' }}>
+            Planning an event?
+          </p>
+          <h2 className="mt-3 font-serif text-2xl font-black leading-tight text-white sm:text-3xl">
+            Bring The Little Stand to Your Next Event
+          </h2>
+          <p className="mt-4 text-sm font-semibold" style={{ color: '#FFF7E5' }}>
+            ✅ Insured &nbsp;·&nbsp; ✅ Permitted &nbsp;·&nbsp; ✅ Food Handler Certified
+          </p>
+          <Link
+            to="/why-companies-choose-us"
+            className="mt-6 inline-flex rounded-full px-8 py-3 text-sm font-black transition hover:opacity-90"
+            style={{ backgroundColor: '#FCD34D', color: '#081A33' }}
+          >
+            See Why Companies Book Us →
+          </Link>
+        </div>
+      </section>
+
       {/* ===== CTA ===== */}
       <section className="w-full px-5 py-14 text-center">
         <h2 className="font-serif text-2xl font-black sm:text-4xl" style={{ color: '#081A33' }}>
