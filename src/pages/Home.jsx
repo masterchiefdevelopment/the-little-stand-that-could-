@@ -132,82 +132,90 @@ function Home() {
           }}
         >
           {isMobile ? (
-            <div style={{ backgroundColor: '#ff69b4', padding: '2rem 1rem', textAlign: 'center' }}>
-              <h2
-                style={{
-                  fontSize: 'clamp(1.75rem, 8vw, 2.5rem)',
-                  color: '#ffffff',
-                  textShadow: '2px 2px 8px rgba(0,0,0,0.8)',
-                  margin: 0,
-                  lineHeight: 1.2,
-                }}
-              >
-                The Little Stand That Could
-              </h2>
-              <p
-                style={{
-                  fontSize: 'clamp(1rem, 4vw, 1.2rem)',
-                  color: '#ffd700',
-                  fontStyle: 'italic',
-                  textShadow: '1px 1px 4px rgba(0,0,0,0.8)',
-                  margin: '0.75rem 0 0 0',
-                }}
-              >
-                Those who refresh will themselves be refreshed.
-              </p>
-              <p
-                style={{
-                  fontSize: '1rem',
-                  color: '#ffd700',
-                  textShadow: '1px 1px 4px rgba(0,0,0,0.8)',
-                  margin: '0.35rem 0 0 0',
-                }}
-              >
-                — Proverbs 11:25
-              </p>
+            <>
+              <div style={{ position: 'relative', marginBottom: '2rem' }}>
+                <img src="/photos/stand.jpg" alt="Stand" style={{ width: '100%', display: 'block', borderRadius: '8px' }} />
+                <h2
+                  style={{
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    color: '#ffffff',
+                    textShadow: '2px 2px 8px rgba(0,0,0,0.8)',
+                    fontSize: 'clamp(1.8rem, 5vw, 2.5rem)',
+                    textAlign: 'center',
+                    padding: '0 1rem',
+                    zIndex: 10,
+                    width: '100%',
+                    margin: 0,
+                  }}
+                >
+                  The Little Stand That Could
+                </h2>
+              </div>
 
-              <img
-                src="/photos/stand.jpg"
-                alt="The Little Stand"
-                style={{ width: '100%', marginTop: '1rem', borderRadius: '8px' }}
-              />
+              <div style={{ backgroundColor: '#ffffff', padding: '2rem 1.5rem', marginBottom: '2rem', borderRadius: '8px' }}>
+                <p
+                  style={{
+                    fontSize: '0.95rem',
+                    fontStyle: 'italic',
+                    color: '#ffb6d9',
+                    textAlign: 'center',
+                    marginBottom: '0.5rem',
+                  }}
+                >
+                  Those who refresh will themselves be refreshed.
+                </p>
+                <p
+                  style={{
+                    fontSize: '0.85rem',
+                    color: '#ffb6d9',
+                    textAlign: 'center',
+                    marginBottom: '1.5rem',
+                  }}
+                >
+                  — Proverbs 11:25
+                </p>
 
-              <div
-                style={{
-                  marginTop: '1rem',
-                  fontSize: '1rem',
-                  color: '#ffffff',
-                  textShadow: '1px 1px 4px rgba(0,0,0,0.8)',
-                  lineHeight: 1.6,
-                }}
-              >
-                <p>
+                <p style={{ fontSize: '0.95rem', lineHeight: '1.6', color: '#333', marginBottom: '1rem' }}>
                   We started as a family standing around a folding table with mason jars, smiles, and a goal. It was not just a lemonade stand — it was a shared dream, a way to be together, to hustle together, and to build something beautiful with our own hands.
                 </p>
-                <p className="mt-3">
+
+                <p style={{ fontSize: '0.95rem', lineHeight: '1.6', color: '#333', marginBottom: '1rem' }}>
                   Today, The Little Stand That Could is a family-owned business serving fresh-squeezed lemonade made with real fruit and real ingredients. No syrups. No shortcuts.
                 </p>
-                <p className="mt-3">
+
+                <p style={{ fontSize: '0.95rem', lineHeight: '1.6', color: '#333' }}>
                   More than lemonade, our mission is to create a place where people can gather, connect, and experience the love of Jesus through community, kindness, and service. Every lemonade purchased helps support our family and the events we host for our community.
-                </p>
-                <p className="mt-3" style={{ color: '#ffd700' }}>
-                  Those who refresh others will themselves be refreshed. — Proverbs 11:25
                 </p>
               </div>
 
-              <div style={{ marginTop: '2rem', textAlign: 'center' }}>
-                <p className="font-serif text-xl font-bold" style={{ color: '#FFF7E5' }}>
+              <div style={{ backgroundColor: '#ff69b4', padding: '2rem 1.5rem', textAlign: 'center', borderRadius: '8px' }}>
+                <h3 style={{ color: '#ffffff', fontSize: '1.3rem', marginBottom: '1.5rem' }}>
                   Want to know the heart behind the stand?
-                </p>
+                </h3>
                 <Link
                   to="/story"
-                  className="mt-6 inline-flex rounded-full px-8 py-3 text-sm font-bold tracking-wide transition hover:opacity-90"
-                  style={{ backgroundColor: '#1a1a2e', color: '#FFF7E5' }}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    backgroundColor: '#000000',
+                    color: '#ffffff',
+                    padding: '0.75rem 2rem',
+                    border: 'none',
+                    borderRadius: '20px',
+                    fontSize: '1rem',
+                    cursor: 'pointer',
+                    fontWeight: 'bold',
+                    textDecoration: 'none',
+                  }}
                 >
                   Read Our Full Story
                 </Link>
               </div>
-            </div>
+            </>
           ) : (
             <>
               <div style={{ position: 'relative' }}>
