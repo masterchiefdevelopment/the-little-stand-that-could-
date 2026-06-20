@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+@theme {
+  --font-serif: "Fraunces", Georgia, serif;
+  --font-sans: "Nunito Sans", system-ui, sans-serif;
+}
+
 html {
 	scroll-behavior: smooth;
 	overflow-x: hidden;
@@ -9,25 +14,28 @@ body {
 	overflow-x: hidden;
 	margin: 0;
 	padding: 0;
+	font-family: "Nunito Sans", system-ui, sans-serif;
 }
 
 * {
 	box-sizing: border-box;
-}/* ============================================
+}
+
+/* ============================================
    GLOBAL ROUND EDGES
    Buttons + inputs = pill. Images = soft corners.
    Auto-applies site-wide. Override per-element if needed.
    ============================================ */
 button {
-        border-radius: 9999px;
+	border-radius: 9999px;
 }
 input,
 textarea,
 select {
-        border-radius: 9999px;
+	border-radius: 9999px;
 }
 img {
-        border-radius: 1rem; /* 16px soft corners on all photos */
+	border-radius: 1rem; /* 16px soft corners on all photos */
 }
 
 .responsive-container {

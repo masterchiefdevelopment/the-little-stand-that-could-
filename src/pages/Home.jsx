@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
-import { flavors } from '../data/menu'
 
 const whyUs = [
   {
@@ -21,14 +20,10 @@ const whyUs = [
   },
 ]
 
-// Continuous page-wide gradient — sections sit transparent on top so they melt
-// into each other (Magic Spoon style). Pastel + premium: family-warm, catering-clean.
 const PAGE_GRADIENT =
   'linear-gradient(180deg, #FFF7E5 0%, #FFE3F1 14%, #FFF3C4 30%, #FFF7E5 46%, #FFE3F1 62%, #FFF3C4 78%, #FFF7E5 100%)'
 
 function Home() {
-  const previewFlavors = flavors.slice(0, 6)
-
   return (
     <div style={{ background: PAGE_GRADIENT }}>
       <Nav />
@@ -43,24 +38,27 @@ function Home() {
       </section>
 
       {/* ===== TAGLINE (intro to menu) ===== */}
-      <section className="w-full px-5 pt-8 pb-2 text-center">
-        <h1
-          className="font-serif text-2xl font-bold leading-tight sm:text-4xl"
-          style={{ color: '#081A33' }}
+      <section className="w-full px-5 pt-10 pb-2 text-center">
+        <p
+          className="text-xs font-bold uppercase tracking-[0.25em]"
+          style={{ color: '#E84C89' }}
         >
-          Fresh-Squeezed. Real Fruit. No Syrups Ever.
-        </h1>
-        <p className="mt-3 text-sm sm:text-lg" style={{ color: '#E84C89' }}>
           From our family to yours
         </p>
+        <h1
+          className="mt-3 font-serif text-3xl font-black leading-[1.05] tracking-tight sm:text-5xl"
+          style={{ color: '#081A33' }}
+        >
+          Fresh-Squeezed.<br />Real Fruit.<br />No Syrups Ever.
+        </h1>
       </section>
 
       {/* ===== 🍋 SWIPE MENU SLOTS IN HERE (building next) ===== */}
 
-      {/* ===== STORY (mobile-first: photo, then text card) ===== */}
+      {/* ===== STORY (short hook -> Read Our Full Story) ===== */}
       <section className="w-full px-5 py-12 sm:py-16">
         <div className="mx-auto max-w-4xl">
-        <div
+          <div
             className="mx-auto w-full overflow-hidden rounded-3xl shadow-lg"
             style={{ aspectRatio: '16 / 10' }}
           >
@@ -68,16 +66,16 @@ function Home() {
               src="/photos/stand.jpg"
               alt="The Little Stand That Could"
               className="h-full w-full"
-style={{ objectFit: 'cover', objectPosition: 'center 35%' }}
+              style={{ objectFit: 'cover', objectPosition: 'center 35%' }}
             />
           </div>
 
           <div className="mt-8 rounded-3xl bg-white/70 p-6 backdrop-blur-sm sm:p-10">
             <h2
-              className="text-center font-serif text-2xl font-bold sm:text-3xl"
+              className="text-center font-serif text-2xl font-black sm:text-3xl"
               style={{ color: '#081A33' }}
             >
-              The Little Stand That Could
+              More Than Lemonade
             </h2>
             <p
               className="mt-3 text-center text-sm italic sm:text-base"
@@ -86,28 +84,14 @@ style={{ objectFit: 'cover', objectPosition: 'center 35%' }}
               “Those who refresh others will themselves be refreshed.” — Proverbs 11:25
             </p>
 
-            <div
-              className="mt-6 space-y-4 text-sm leading-relaxed sm:text-base"
+            <p
+              className="mt-6 text-center text-base leading-relaxed sm:text-lg"
               style={{ color: '#333' }}
             >
-              <p>
-                We started as a family standing around a folding table with mason jars,
-                smiles, and a goal. It was not just a lemonade stand — it was a shared dream,
-                a way to be together, to hustle together, and to build something beautiful
-                with our own hands.
-              </p>
-              <p>
-                Today, The Little Stand That Could is a family-owned business serving
-                fresh-squeezed lemonade made with real fruit and real ingredients. No syrups.
-                No shortcuts.
-              </p>
-              <p>
-                More than lemonade, our mission is to create a place where people can gather,
-                connect, and experience the love of Jesus through community, kindness, and
-                service. Every lemonade purchased helps support our family and the events we
-                host for our community.
-              </p>
-            </div>
+              What started as a family around a folding table became a faith-driven
+              business serving fresh-squeezed lemonade — and a whole lot of love — to
+              our San Antonio community.
+            </p>
 
             <div className="mt-8 text-center">
               <Link
@@ -126,7 +110,7 @@ style={{ objectFit: 'cover', objectPosition: 'center 35%' }}
       <section className="w-full px-5 py-12 sm:py-16">
         <div className="mx-auto max-w-5xl">
           <h2
-            className="text-center font-serif text-2xl font-bold sm:text-4xl"
+            className="text-center font-serif text-2xl font-black sm:text-4xl"
             style={{ color: '#081A33' }}
           >
             Why Choose Us?
@@ -150,53 +134,9 @@ style={{ objectFit: 'cover', objectPosition: 'center 35%' }}
         </div>
       </section>
 
-      {/* ===== FLAVORS PREVIEW ===== */}
-      <section className="w-full px-5 py-12 sm:py-16">
-        <div className="mx-auto max-w-5xl">
-          <h2
-            className="text-center font-serif text-2xl font-bold sm:text-4xl"
-            style={{ color: '#081A33' }}
-          >
-            11 Fresh Flavors
-          </h2>
-          <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-6">
-            {previewFlavors.map((flavor) => (
-              <div
-                key={flavor.id}
-                className="rounded-2xl bg-white/80 p-4 text-center shadow-sm backdrop-blur-sm transition-transform hover:scale-105"
-              >
-                <p className="text-sm font-bold" style={{ color: '#081A33' }}>
-                  {flavor.name}
-                </p>
-                <p className="mt-1 text-sm font-semibold" style={{ color: '#E84C89' }}>
-                  ${flavor.price.toFixed(2)}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <Link
-              to="/menu"
-              className="w-full rounded-full px-8 py-3 text-center text-sm font-bold text-white transition hover:opacity-90 sm:w-auto"
-              style={{ backgroundColor: '#081A33' }}
-            >
-              See Full Menu
-            </Link>
-            <Link
-              to="/why-companies-choose-us"
-              className="w-full rounded-full px-8 py-3 text-center text-sm font-bold transition hover:opacity-90 sm:w-auto"
-              style={{ backgroundColor: '#FCD34D', color: '#081A33' }}
-            >
-              Catering & Companies
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* ===== CTA ===== */}
       <section className="w-full px-5 py-14 text-center">
-        <h2 className="font-serif text-2xl font-bold sm:text-4xl" style={{ color: '#081A33' }}>
+        <h2 className="font-serif text-2xl font-black sm:text-4xl" style={{ color: '#081A33' }}>
           Ready to refresh?
         </h2>
         <Link
