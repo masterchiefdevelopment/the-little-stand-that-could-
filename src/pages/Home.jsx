@@ -2,24 +2,7 @@ import { Link } from 'react-router-dom'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 import DrinkBuilder from '../components/DrinkBuilder'
-
-const whyUs = [
-  {
-    title: 'Real Ingredients',
-    copy: 'Fresh-squeezed fruit, real sugar, no syrups or shortcuts — ever.',
-    icon: '🍋',
-  },
-  {
-    title: 'Family Owned',
-    copy: 'Started as a kid’s lemonade stand, grown by faith and family hands.',
-    icon: '🏡',
-  },
-  {
-    title: 'Community First',
-    copy: 'Every cup helps fund the events we host for our neighbors.',
-    icon: '🤝',
-  },
-]
+import WhyWheel from '../components/WhyWheel'
 
 const PAGE_GRADIENT =
   'linear-gradient(180deg, #FFF7E5 0%, #FFE3F1 14%, #FFF3C4 30%, #FFF7E5 46%, #FFE3F1 62%, #FFF3C4 78%, #FFF7E5 100%)'
@@ -54,7 +37,7 @@ function Home() {
         </h1>
       </section>
 
-      {/* ===== 🍋 SWIPE MENU SLOTS IN HERE (building next) ===== */}
+      {/* ===== 🍋 BUILD-A-DRINK MENU ===== */}
       <DrinkBuilder />
 
       {/* ===== STORY (short hook -> Read Our Full Story) ===== */}
@@ -108,33 +91,8 @@ function Home() {
         </div>
       </section>
 
-      {/* ===== WHY CHOOSE US ===== */}
-      <section className="w-full px-5 py-12 sm:py-16">
-        <div className="mx-auto max-w-5xl">
-          <h2
-            className="text-center font-serif text-2xl font-black sm:text-4xl"
-            style={{ color: '#081A33' }}
-          >
-            Why Choose Us?
-          </h2>
-          <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-3">
-            {whyUs.map((item) => (
-              <div
-                key={item.title}
-                className="rounded-3xl bg-white/70 p-8 text-center shadow-md backdrop-blur-sm transition hover:-translate-y-1"
-              >
-                <div className="text-5xl">{item.icon}</div>
-                <h3 className="mt-4 text-xl font-bold" style={{ color: '#081A33' }}>
-                  {item.title}
-                </h3>
-                <p className="mt-2 text-sm" style={{ color: '#555' }}>
-                  {item.copy}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ===== WHY CHOOSE US — ROTATING WHEEL ===== */}
+      <WhyWheel />
 
       {/* ===== CTA ===== */}
       <section className="w-full px-5 py-14 text-center">
@@ -148,45 +106,6 @@ function Home() {
         >
           Order Online
         </Link>
-      </section>
-
-      {/* ===== EXPLORE CARDS ===== */}
-      <section className="w-full px-5 py-12 sm:py-16">
-        <div className="mx-auto grid max-w-5xl gap-6 sm:grid-cols-3">
-          <Link
-            to="/community-impact"
-            className="flex flex-col items-center rounded-3xl bg-white/70 p-8 text-center shadow-md backdrop-blur-sm transition hover:-translate-y-1"
-            style={{ color: '#081A33' }}
-          >
-            <div className="mb-4 text-4xl">🤝</div>
-            <h3 className="text-xl font-bold">Community Impact</h3>
-            <p className="mt-3 text-sm" style={{ color: '#555' }}>
-              See how we give back to San Antonio
-            </p>
-          </Link>
-          <Link
-            to="/upcoming-events"
-            className="flex flex-col items-center rounded-3xl bg-white/70 p-8 text-center shadow-md backdrop-blur-sm transition hover:-translate-y-1"
-            style={{ color: '#081A33' }}
-          >
-            <div className="mb-4 text-4xl">📅</div>
-            <h3 className="text-xl font-bold">Upcoming Events</h3>
-            <p className="mt-3 text-sm" style={{ color: '#555' }}>
-              Find us at local events and markets
-            </p>
-          </Link>
-          <Link
-            to="/reviews"
-            className="flex flex-col items-center rounded-3xl bg-white/70 p-8 text-center shadow-md backdrop-blur-sm transition hover:-translate-y-1"
-            style={{ color: '#081A33' }}
-          >
-            <div className="mb-4 text-4xl">⭐</div>
-            <h3 className="text-xl font-bold">Customer Reviews</h3>
-            <p className="mt-3 text-sm" style={{ color: '#555' }}>
-              Hear what people are saying
-            </p>
-          </Link>
-        </div>
       </section>
 
       <Footer />
