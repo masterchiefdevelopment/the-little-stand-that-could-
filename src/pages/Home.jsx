@@ -21,77 +21,69 @@ const whyUs = [
   },
 ]
 
+// Continuous page-wide gradient — sections sit transparent on top so they melt
+// into each other (Magic Spoon style). Pastel + premium: family-warm, catering-clean.
+const PAGE_GRADIENT =
+  'linear-gradient(180deg, #FFF7E5 0%, #FFE3F1 14%, #FFF3C4 30%, #FFF7E5 46%, #FFE3F1 62%, #FFF3C4 78%, #FFF7E5 100%)'
+
 function Home() {
   const previewFlavors = flavors.slice(0, 6)
-  const isMobile = typeof window !== 'undefined' && window.innerWidth < 640
 
   return (
-    <div style={{ backgroundColor: '#FFFBEB' }}>
+    <div style={{ background: PAGE_GRADIENT }}>
       <Nav />
 
+      {/* ===== HERO ===== */}
       <section
-        className="relative w-full overflow-hidden responsive-hero"
+        className="relative w-full overflow-hidden"
         style={{
-          backgroundImage: "url('/photos/header.jpg')",
+         backgroundImage: "url('/photos/header.jpg')",
           backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed',
-          padding: 'clamp(1.5rem, 5vw, 3rem)',
-          textAlign: 'center',
-          position: 'relative',
-          minHeight: '500px',
+          backgroundPosition: 'center center',
+          minHeight: '540px',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
+          padding: 'clamp(2rem, 6vw, 4rem) 1.25rem',
+          textAlign: 'center',
         }}
       >
-        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(26,26,46,0.6)' }} />
-
-        <svg
-          className="pointer-events-none absolute right-0 top-0 hidden h-full w-24 opacity-30 sm:block"
-          viewBox="0 0 100 600"
-          fill="none"
-          aria-hidden="true"
-        >
-          <path
-            d="M90 0 C40 100, 110 200, 60 300 C20 380, 100 480, 50 600"
-            stroke="#FCD34D"
-            strokeWidth="4"
-            fill="none"
-          />
-        </svg>
-
+        {/* Lighter overlay = photo gets breathing room, still readable text.
+            Soft gradient (darker at bottom) keeps buttons legible. */}
         <div
-          className="relative z-10 responsive-container responsive-scale flex flex-col items-center text-center"
-          style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(1rem, 3vw, 2rem)' }}
-        >
-          <h1 className="font-serif text-4xl font-bold leading-tight text-white sm:text-6xl">
+          className="absolute inset-0"
+          style={{
+            background:
+            'linear-gradient(180deg, rgba(8,26,51,0.45) 0%, rgba(8,26,51,0.35) 45%, rgba(8,26,51,0.65) 100%)',
+          }}
+        />
+
+        <div className="relative z-10 mx-auto flex w-full max-w-3xl flex-col items-center">
+          <h1 className="font-serif text-3xl font-bold leading-tight text-white sm:text-5xl md:text-6xl">
             Fresh-Squeezed. Real Fruit. No Syrups Ever.
           </h1>
-          <p className="mt-4 text-lg sm:text-xl" style={{ color: '#FCD34D' }}>
+          <p className="mt-4 text-base sm:text-xl" style={{ color: '#FCD34D' }}>
             From our family to yours
           </p>
 
           <div className="mt-8 flex w-full flex-col gap-3 sm:flex-row sm:justify-center">
+            {/* Frosted translucent buttons */}
             <Link
               to="/order"
-              className="w-full rounded-lg px-6 py-3 text-center text-sm font-bold transition-colors hover:opacity-90 sm:w-auto"
-              style={{ backgroundColor: '#FCD34D', color: '#1a1a2e' }}
+              className="w-full rounded-full border border-white/50 bg-white/25 px-6 py-3 text-center text-sm font-bold text-white backdrop-blur-md transition hover:bg-white/35 sm:w-auto"
             >
               Order Online
             </Link>
             <Link
               to="/events"
-              className="w-full rounded-lg px-6 py-3 text-center text-sm font-bold text-white transition-colors hover:opacity-90 sm:w-auto"
-              style={{ backgroundColor: '#E84C89' }}
+              className="w-full rounded-full border border-white/50 bg-white/15 px-6 py-3 text-center text-sm font-bold text-white backdrop-blur-md transition hover:bg-white/30 sm:w-auto"
             >
               Book Events
             </Link>
             <Link
               to="/location"
-              className="w-full rounded-lg border border-white px-6 py-3 text-center text-sm font-bold text-white transition-colors hover:opacity-90 sm:w-auto"
-              style={{ backgroundColor: '#1a1a2e' }}
+              className="w-full rounded-full border border-white/50 bg-white/15 px-6 py-3 text-center text-sm font-bold text-white backdrop-blur-md transition hover:bg-white/30 sm:w-auto"
             >
               Visit Shop
             </Link>
@@ -99,213 +91,91 @@ function Home() {
         </div>
       </section>
 
-      <section
-        className="relative w-full overflow-hidden"
-        style={{
-          backgroundColor: '#ff69b4',
-          padding: '4rem 2rem',
-          borderRadius: '8px',
-          marginTop: '2rem',
-          marginBottom: '2rem',
-        }}
-      >
-        <svg
-          className="pointer-events-none absolute -left-6 top-0 hidden h-full w-20 opacity-20 sm:block"
-          viewBox="0 0 100 600"
-          fill="none"
-          aria-hidden="true"
-        >
-          <path
-            d="M10 0 C60 100, -10 200, 40 300 C80 380, 0 480, 50 600"
-            stroke="#E84C89"
-            strokeWidth="4"
-            fill="none"
-          />
-        </svg>
-
+      {/* ===== STORY (mobile-first: photo, then text card) ===== */}
+      <section className="w-full px-5 py-12 sm:py-16">
+        <div className="mx-auto max-w-4xl">
         <div
-          className="relative z-10 responsive-container"
-          style={{
-            maxWidth: '1200px',
-            margin: '0 auto',
-            padding: 'clamp(1rem, 3vw, 2rem)',
-          }}
-        >
-          {isMobile ? (
-            <>
-              <div style={{ position: 'relative', marginBottom: '2rem' }}>
-                <img src="/photos/stand.jpg" alt="Stand" style={{ width: '100%', display: 'block', borderRadius: '8px' }} />
-                <h2
-                  style={{
-                    position: 'absolute',
-                    top: '50%',
-                    left: '50%',
-                    transform: 'translate(-50%, -50%)',
-                    color: '#ffffff',
-                    textShadow: '2px 2px 8px rgba(0,0,0,0.8)',
-                    fontSize: 'clamp(1.8rem, 5vw, 2.5rem)',
-                    textAlign: 'center',
-                    padding: '0 1rem',
-                    zIndex: 10,
-                    width: '100%',
-                    margin: 0,
-                  }}
-                >
-                  The Little Stand That Could
-                </h2>
-              </div>
+            className="mx-auto w-full overflow-hidden rounded-3xl shadow-lg"
+            style={{ aspectRatio: '16 / 10' }}
+          >
+            <img
+              src="/photos/stand.jpg"
+              alt="The Little Stand That Could"
+              className="h-full w-full"
+style={{ objectFit: 'cover', objectPosition: 'center 35%' }}
+            />
+          </div>
 
-              <div style={{ backgroundColor: '#ffffff', padding: '2rem 1.5rem', marginBottom: '2rem', borderRadius: '8px' }}>
-                <p
-                  style={{
-                    fontSize: '0.95rem',
-                    fontStyle: 'italic',
-                    color: '#ffb6d9',
-                    textAlign: 'center',
-                    marginBottom: '0.5rem',
-                  }}
-                >
-                  Those who refresh will themselves be refreshed.
-                </p>
-                <p
-                  style={{
-                    fontSize: '0.85rem',
-                    color: '#ffb6d9',
-                    textAlign: 'center',
-                    marginBottom: '1.5rem',
-                  }}
-                >
-                  — Proverbs 11:25
-                </p>
+          <div className="mt-8 rounded-3xl bg-white/70 p-6 backdrop-blur-sm sm:p-10">
+            <h2
+              className="text-center font-serif text-2xl font-bold sm:text-3xl"
+              style={{ color: '#081A33' }}
+            >
+              The Little Stand That Could
+            </h2>
+            <p
+              className="mt-3 text-center text-sm italic sm:text-base"
+              style={{ color: '#E84C89' }}
+            >
+              “Those who refresh others will themselves be refreshed.” — Proverbs 11:25
+            </p>
 
-                <p style={{ fontSize: '0.95rem', lineHeight: '1.6', color: '#333', marginBottom: '1rem' }}>
-                  We started as a family standing around a folding table with mason jars, smiles, and a goal. It was not just a lemonade stand — it was a shared dream, a way to be together, to hustle together, and to build something beautiful with our own hands.
-                </p>
+            <div
+              className="mt-6 space-y-4 text-sm leading-relaxed sm:text-base"
+              style={{ color: '#333' }}
+            >
+              <p>
+                We started as a family standing around a folding table with mason jars,
+                smiles, and a goal. It was not just a lemonade stand — it was a shared dream,
+                a way to be together, to hustle together, and to build something beautiful
+                with our own hands.
+              </p>
+              <p>
+                Today, The Little Stand That Could is a family-owned business serving
+                fresh-squeezed lemonade made with real fruit and real ingredients. No syrups.
+                No shortcuts.
+              </p>
+              <p>
+                More than lemonade, our mission is to create a place where people can gather,
+                connect, and experience the love of Jesus through community, kindness, and
+                service. Every lemonade purchased helps support our family and the events we
+                host for our community.
+              </p>
+            </div>
 
-                <p style={{ fontSize: '0.95rem', lineHeight: '1.6', color: '#333', marginBottom: '1rem' }}>
-                  Today, The Little Stand That Could is a family-owned business serving fresh-squeezed lemonade made with real fruit and real ingredients. No syrups. No shortcuts.
-                </p>
-
-                <p style={{ fontSize: '0.95rem', lineHeight: '1.6', color: '#333' }}>
-                  More than lemonade, our mission is to create a place where people can gather, connect, and experience the love of Jesus through community, kindness, and service. Every lemonade purchased helps support our family and the events we host for our community.
-                </p>
-              </div>
-
-              <div style={{ backgroundColor: '#ff69b4', padding: '2rem 1.5rem', textAlign: 'center', borderRadius: '8px' }}>
-                <h3 style={{ color: '#ffffff', fontSize: '1.3rem', marginBottom: '1.5rem' }}>
-                  Want to know the heart behind the stand?
-                </h3>
-                <Link
-                  to="/story"
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    backgroundColor: '#000000',
-                    color: '#ffffff',
-                    padding: '0.75rem 2rem',
-                    border: 'none',
-                    borderRadius: '20px',
-                    fontSize: '1rem',
-                    cursor: 'pointer',
-                    fontWeight: 'bold',
-                    textDecoration: 'none',
-                  }}
-                >
-                  Read Our Full Story
-                </Link>
-              </div>
-            </>
-          ) : (
-            <>
-              <div style={{ position: 'relative' }}>
-                <img
-                  src="/photos/stand.jpg"
-                  alt="The Little Stand"
-                  style={{
-                    width: '100%',
-                    display: 'block',
-                    borderRadius: '8px',
-                    maskImage: 'linear-gradient(to right, transparent 0%, black 0.5%, black 99.5%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 2%, black 98%, transparent 100%)',
-                    maskComposite: 'intersect',
-                    WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 0.5%, black 99.5%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 2%, black 98%, transparent 100%)',
-                    WebkitMaskComposite: 'source-in',
-                  }}
-                />
-
-                <div style={{ position: 'absolute', top: '20px', left: 0, right: 0, textAlign: 'center', zIndex: 10, padding: '1rem' }}>
-                  <h2 style={{ fontSize: 'clamp(1.5rem, 6vw, 4rem)', color: '#ffffff', textShadow: '2px 2px 8px rgba(0,0,0,0.8)', margin: '0 0 0.5rem 0', lineHeight: 1.2 }}>
-                    The Little Stand That Could
-                  </h2>
-                  <p style={{ fontSize: 'clamp(0.9rem, 3vw, 1.3rem)', color: '#ffd700', fontStyle: 'italic', textShadow: '1px 1px 4px rgba(0,0,0,0.8)', margin: '0.5rem 0', lineHeight: 1.4 }}>
-                    Those who refresh will themselves be refreshed.
-                  </p>
-                  <p style={{ fontSize: '1.3rem', color: '#ffd700', textShadow: '1px 1px 4px rgba(0,0,0,0.8)', margin: 0, lineHeight: 1.4 }}>
-                    — Proverbs 11:25
-                  </p>
-                </div>
-
-                <div style={{ position: 'absolute', bottom: '20px', left: 0, right: 0, textAlign: 'center', padding: '1rem', zIndex: 10 }}>
-                  <div style={{ fontSize: 'clamp(0.85rem, 2.5vw, 1.1rem)', color: '#ffffff', textShadow: '1px 1px 4px rgba(0,0,0,0.8)', maxWidth: '100%', margin: '0 auto', lineHeight: 1.5, padding: '0 1rem' }}>
-                    <p>
-                      We started as a family standing around a folding table with mason jars, smiles, and a goal. It was not just a lemonade stand — it was a shared dream, a way to be together, to hustle together, and to build something beautiful with our own hands.
-                    </p>
-                    <p className="mt-3">
-                      Today, The Little Stand That Could is a family-owned business serving fresh-squeezed lemonade made with real fruit and real ingredients. No syrups. No shortcuts.
-                    </p>
-                    <p className="mt-3">
-                      More than lemonade, our mission is to create a place where people can gather, connect, and experience the love of Jesus through community, kindness, and service. Every lemonade purchased helps support our family and the events we host for our community.
-                    </p>
-                    <p className="mt-3" style={{ color: '#ffd700' }}>
-                      Those who refresh others will themselves be refreshed. — Proverbs 11:25
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div style={{ marginTop: '2rem', textAlign: 'center' }}>
-                <p className="font-serif text-xl font-bold" style={{ color: '#FFF7E5' }}>
-                  Want to know the heart behind the stand?
-                </p>
-                <Link
-                  to="/story"
-                  className="mt-6 inline-flex rounded-full px-8 py-3 text-sm font-bold tracking-wide transition hover:opacity-90"
-                  style={{ backgroundColor: '#1a1a2e', color: '#FFF7E5' }}
-                >
-                  Read Our Full Story
-                </Link>
-              </div>
-            </>
-          )}
+            <div className="mt-8 text-center">
+              <Link
+                to="/story"
+                className="inline-flex rounded-full px-8 py-3 text-sm font-bold tracking-wide text-white transition hover:opacity-90"
+                style={{ backgroundColor: '#081A33' }}
+              >
+                Read Our Full Story
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section className="w-full bg-white">
-        <div
-          className="responsive-container responsive-card-container"
-          style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(1rem, 4vw, 2rem)' }}
-        >
-          <h2 className="text-center font-serif text-3xl font-bold sm:text-4xl" style={{ color: '#1a1a2e' }}>
+      {/* ===== WHY CHOOSE US ===== */}
+      <section className="w-full px-5 py-12 sm:py-16">
+        <div className="mx-auto max-w-5xl">
+          <h2
+            className="text-center font-serif text-2xl font-bold sm:text-4xl"
+            style={{ color: '#081A33' }}
+          >
             Why Choose Us?
           </h2>
           <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-3">
             {whyUs.map((item) => (
               <div
                 key={item.title}
-                className="group rounded-2xl p-8 text-center shadow-md transition-colors"
-                style={{ backgroundColor: '#E84C89' }}
+                className="rounded-3xl bg-white/70 p-8 text-center shadow-md backdrop-blur-sm transition hover:-translate-y-1"
               >
-                <div className="text-4xl">{item.icon}</div>
-                <h3
-                  className="mt-4 text-xl font-bold transition-colors group-hover:opacity-80"
-                  style={{ color: '#1a1a2e' }}
-                >
-                  <span className="group-hover:hidden">{item.title}</span>
-                  <span className="hidden group-hover:inline" style={{ color: '#FCD34D' }}>
-                    {item.title}
-                  </span>
+                <div className="text-5xl">{item.icon}</div>
+                <h3 className="mt-4 text-xl font-bold" style={{ color: '#081A33' }}>
+                  {item.title}
                 </h3>
-                <p className="mt-2 text-sm" style={{ color: '#FFFBEB' }}>
+                <p className="mt-2 text-sm" style={{ color: '#555' }}>
                   {item.copy}
                 </p>
               </div>
@@ -314,22 +184,22 @@ function Home() {
         </div>
       </section>
 
-      <section className="w-full" style={{ backgroundColor: '#FFFBEB' }}>
-        <div
-          className="responsive-container responsive-card-container"
-          style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(1rem, 4vw, 2rem)' }}
-        >
-          <h2 className="text-center font-serif text-3xl font-bold sm:text-4xl" style={{ color: '#1a1a2e' }}>
+      {/* ===== FLAVORS PREVIEW ===== */}
+      <section className="w-full px-5 py-12 sm:py-16">
+        <div className="mx-auto max-w-5xl">
+          <h2
+            className="text-center font-serif text-2xl font-bold sm:text-4xl"
+            style={{ color: '#081A33' }}
+          >
             11 Fresh Flavors
           </h2>
           <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-6">
             {previewFlavors.map((flavor) => (
               <div
                 key={flavor.id}
-                className="rounded-xl border bg-white p-4 text-center shadow-sm transition-transform hover:scale-105"
-                style={{ borderColor: 'rgba(26,26,46,0.1)' }}
+                className="rounded-2xl bg-white/80 p-4 text-center shadow-sm backdrop-blur-sm transition-transform hover:scale-105"
               >
-                <p className="text-sm font-bold" style={{ color: '#1a1a2e' }}>
+                <p className="text-sm font-bold" style={{ color: '#081A33' }}>
                   {flavor.name}
                 </p>
                 <p className="mt-1 text-sm font-semibold" style={{ color: '#E84C89' }}>
@@ -338,90 +208,76 @@ function Home() {
               </div>
             ))}
           </div>
+
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
               to="/menu"
-              className="w-full rounded-lg px-8 py-3 text-center text-sm font-bold transition-colors hover:opacity-90 sm:w-auto"
-              style={{ backgroundColor: '#1a1a2e', color: '#FFFBEB' }}
+              className="w-full rounded-full px-8 py-3 text-center text-sm font-bold text-white transition hover:opacity-90 sm:w-auto"
+              style={{ backgroundColor: '#081A33' }}
             >
               See Full Menu
             </Link>
             <Link
               to="/why-companies-choose-us"
-              className="w-full rounded-lg px-8 py-3 text-center text-sm font-bold transition-colors hover:opacity-90 sm:w-auto"
+              className="w-full rounded-full px-8 py-3 text-center text-sm font-bold transition hover:opacity-90 sm:w-auto"
               style={{ backgroundColor: '#FCD34D', color: '#081A33' }}
             >
-              Why Companies Choose Us
+              Catering & Companies
             </Link>
           </div>
         </div>
       </section>
 
-      <section className="relative w-full overflow-hidden" style={{ backgroundColor: '#FCD34D' }}>
-        <div
-          className="relative z-10 responsive-container responsive-text-section flex flex-col items-center text-center"
-          style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(1rem, 3vw, 2rem)' }}
+      {/* ===== CTA ===== */}
+      <section className="w-full px-5 py-14 text-center">
+        <h2 className="font-serif text-2xl font-bold sm:text-4xl" style={{ color: '#081A33' }}>
+          Ready to refresh?
+        </h2>
+        <Link
+          to="/order"
+          className="mt-6 inline-flex rounded-full px-10 py-3 text-sm font-bold text-white transition hover:opacity-90"
+          style={{ backgroundColor: '#E84C89' }}
         >
-          <h2 className="font-serif text-3xl font-bold sm:text-4xl" style={{ color: '#1a1a2e' }}>
-            Ready to refresh?
-          </h2>
+          Order Online
+        </Link>
+      </section>
+
+      {/* ===== EXPLORE CARDS ===== */}
+      <section className="w-full px-5 py-12 sm:py-16">
+        <div className="mx-auto grid max-w-5xl gap-6 sm:grid-cols-3">
           <Link
-            to="/order"
-            className="mt-6 w-full rounded-lg px-8 py-3 text-center text-sm font-bold transition-colors hover:opacity-90 sm:w-auto"
-            style={{ backgroundColor: '#1a1a2e', color: '#FFFBEB' }}
+            to="/community-impact"
+            className="flex flex-col items-center rounded-3xl bg-white/70 p-8 text-center shadow-md backdrop-blur-sm transition hover:-translate-y-1"
+            style={{ color: '#081A33' }}
           >
-            Order Online
+            <div className="mb-4 text-4xl">🤝</div>
+            <h3 className="text-xl font-bold">Community Impact</h3>
+            <p className="mt-3 text-sm" style={{ color: '#555' }}>
+              See how we give back to San Antonio
+            </p>
           </Link>
-        </div>
-        <svg
-          className="pointer-events-none absolute bottom-0 left-0 h-16 w-full opacity-30"
-          viewBox="0 0 1200 100"
-          fill="none"
-          aria-hidden="true"
-        >
-          <path
-            d="M0 80 C200 20, 400 100, 600 50 C800 0, 1000 90, 1200 30"
-            stroke="#1a1a2e"
-            strokeWidth="4"
-            fill="none"
-          />
-        </svg>
-      </section>
-
-      <section className="w-full bg-white">
-        <div
-          className="responsive-container responsive-card-container"
-          style={{ maxWidth: '1200px', margin: '0 auto', padding: 'clamp(1rem, 4vw, 2rem)' }}
-        >
-          <div className="grid gap-6 sm:grid-cols-3">
-            <Link
-              to="/community-impact"
-              className="flex flex-col items-center rounded-2xl bg-gradient-to-br from-[#FCD34D] to-[#F4A460] p-8 text-center shadow-md transition-transform hover:scale-105"
-              style={{ color: '#1a1a2e' }}
-            >
-              <div className="text-4xl mb-4">🤝</div>
-              <h3 className="text-2xl font-bold">Community Impact</h3>
-              <p className="mt-3 text-sm font-semibold">See how we give back to San Antonio</p>
-            </Link>
-            <Link
-              to="/upcoming-events"
-              className="flex flex-col items-center rounded-2xl bg-gradient-to-br from-[#FCD34D] to-[#F4A460] p-8 text-center shadow-md transition-transform hover:scale-105"
-              style={{ color: '#1a1a2e' }}
-            >
-              <div className="text-4xl mb-4">📅</div>
-              <h3 className="text-2xl font-bold">Upcoming Events</h3>
-              <p className="mt-3 text-sm font-semibold">Find us at local events and markets</p>
-            </Link>
-            <Link
-              to="/reviews"
-              className="flex flex-col items-center rounded-2xl bg-gradient-to-br from-[#FCD34D] to-[#F4A460] p-8 text-center shadow-md transition-transform hover:scale-105"
-              style={{ color: '#1a1a2e' }}
-            >
-              <div className="text-4xl mb-4">⭐</div>
-              <h3 className="text-2xl font-bold">Customer Reviews</h3>
-              <p className="mt-3 text-sm font-semibold">Hear what people are saying</p>
-            </Link>
-          </div>
+          <Link
+            to="/upcoming-events"
+            className="flex flex-col items-center rounded-3xl bg-white/70 p-8 text-center shadow-md backdrop-blur-sm transition hover:-translate-y-1"
+            style={{ color: '#081A33' }}
+          >
+            <div className="mb-4 text-4xl">📅</div>
+            <h3 className="text-xl font-bold">Upcoming Events</h3>
+            <p className="mt-3 text-sm" style={{ color: '#555' }}>
+              Find us at local events and markets
+            </p>
+          </Link>
+          <Link
+            to="/reviews"
+            className="flex flex-col items-center rounded-3xl bg-white/70 p-8 text-center shadow-md backdrop-blur-sm transition hover:-translate-y-1"
+            style={{ color: '#081A33' }}
+          >
+            <div className="mb-4 text-4xl">⭐</div>
+            <h3 className="text-xl font-bold">Customer Reviews</h3>
+            <p className="mt-3 text-sm" style={{ color: '#555' }}>
+              Hear what people are saying
+            </p>
+          </Link>
         </div>
       </section>
 
