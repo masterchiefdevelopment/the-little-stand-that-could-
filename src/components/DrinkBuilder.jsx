@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { EffectCoverflow } from 'swiper/modules'
 import { flavors, addOns } from '../data/menu'
 import { images } from '../data/siteImages'
+import { useCart } from '../CartContext'
 import 'swiper/css'
 import 'swiper/css/effect-coverflow'
 
@@ -27,7 +28,6 @@ function camel(id) {
   return parts[0] + parts.slice(1).map((p) => p[0].toUpperCase() + p.slice(1)).join('')
 }
 
-// Reusable coverflow carousel
 function Coverflow({ items, onSelect, renderItem, perView = 2.6 }) {
   return (
     <Swiper
@@ -38,7 +38,7 @@ function Coverflow({ items, onSelect, renderItem, perView = 2.6 }) {
       loop={items.length > 4}
       slidesPerView={perView}
       spaceBetween={0}
-   coverflowEffect={{
+      coverflowEffect={{
         rotate: 0,
         stretch: -20,
         depth: 260,
@@ -61,13 +61,99 @@ function Coverflow({ items, onSelect, renderItem, perView = 2.6 }) {
   )
 }
 
+// makes a fixed-position flying clone of a DOM node at its current spot
+function makeClone(node) {
+  const r = node.getBoundingClientRect()
+  const clone = node.cloneNode(true)
+  clone.style.position = 'fixed'
+  clone.style.left = r.left + 'px'
+  clone.style.top = r.top + 'px'
+  clone.style.width = r.width + 'px'
+  clone.style.height = r.height + 'px'
+  clone.style.margin = '0'
+  clone.style.borderRadius = '1rem'
+  clone.style.zIndex = '9999'
+  clone.style.pointerEvents = 'none'
+  clone.style.transition = 'all 0.5s cubic-bezier(0.45, 0, 0.55, 1)'
+  document.body.appendChild(clone)
+  return { clone, rect: r }
+}
+
 export default function DrinkBuilder() {
+  const { addItem } = useCart()
   const [addOnIndex, setAddOnIndex] = useState(0)
   const [drinkIndex, setDrinkIndex] = useState(0)
+  const drinkCardRef = useRef(null)
+  const addOnCardRef = useRef(null)
 
   const addOn = addOnOptions[addOnIndex]
   const drink = flavors[drinkIndex]
   const total = (drink.price + addOn.price).toFixed(2)
+
+  const handleAdd = () => {
+    // 1. Always add to cart first — animation never affects function
+    addItem({
+      name: drink.name + (addOn.price > 0 ? ` + ${addOn.name}` : ''),
+      price: parseFloat(total),
+    })
+
+    // 2. Visual flair (wrapped so any failure can't break the cart)
+    try {
+      const drinkNode = drinkCardRef.current
+      const addOnNode = addOnCardRef.current
+      const cartBtn = document.getElementById('cart-fly-target')
+      if (!drinkNode || !cartBtn) return
+
+      // meeting point = center between the two cards (or just drink if no add-on node)
+      const dRect = drinkNode.getBoundingClientRect()
+      const meetX = dRect.left + dRect.width / 2
+      const meetY = dRect.top + dRect.height / 2
+
+      const { clone: drinkClone } = makeClone(drinkNode)
+      let addOnClone = null
+      if (addOnNode) addOnClone = makeClone(addOnNode).clone
+
+      void drinkClone.offsetWidth // force reflow
+
+      // PHASE 1: both shrink toward the meeting point
+      const shrinkTo = (clone, w) => {
+        clone.style.left = meetX - w / 2 + 'px'
+        clone.style.top = meetY - w / 2 + 'px'
+        clone.style.width = w + 'px'
+        clone.style.height = w + 'px'
+      }
+      shrinkTo(drinkClone, 70)
+      if (addOnClone) shrinkTo(addOnClone, 70)
+
+      // PHASE 2: merged, fly to cart
+      setTimeout(() => {
+        const end = cartBtn.getBoundingClientRect()
+        const endX = end.left + end.width / 2
+        const endY = end.top + end.height / 2
+        const flyTo = (clone) => {
+          if (!clone) return
+          clone.style.transition = 'all 0.55s cubic-bezier(0.5, -0.2, 0.7, 1)'
+          clone.style.left = endX - 15 + 'px'
+          clone.style.top = endY - 15 + 'px'
+          clone.style.width = '30px'
+          clone.style.height = '30px'
+          clone.style.opacity = '0.2'
+        }
+        flyTo(drinkClone)
+        flyTo(addOnClone)
+
+        // PHASE 3: land + pulse cart, clean up
+        setTimeout(() => {
+          drinkClone.remove()
+          if (addOnClone) addOnClone.remove()
+          cartBtn.style.transform = 'scale(1.25)'
+          setTimeout(() => { cartBtn.style.transform = 'scale(1)' }, 180)
+        }, 550)
+      }, 500)
+    } catch {
+      // silent — item already added, no harm
+    }
+  }
 
   return (
     <div className="mx-auto w-full max-w-md px-2 py-4">
@@ -81,6 +167,7 @@ export default function DrinkBuilder() {
         perView={1.6}
         renderItem={(item, isActive) => (
           <div
+            ref={isActive ? addOnCardRef : null}
             className="flex h-24 flex-col items-center justify-center rounded-3xl p-3 text-center shadow-md"
             style={{ backgroundColor: isActive ? '#FCD34D' : 'rgba(255,255,255,0.85)' }}
           >
@@ -103,6 +190,7 @@ export default function DrinkBuilder() {
         onSelect={setDrinkIndex}
         renderItem={(item, isActive) => (
           <div
+            ref={isActive ? drinkCardRef : null}
             className="flex flex-col items-center rounded-3xl p-3 text-center shadow-md"
             style={{ backgroundColor: isActive ? '#ffffff' : 'rgba(255,255,255,0.75)' }}
           >
@@ -139,6 +227,14 @@ export default function DrinkBuilder() {
         <p className="mt-1 text-lg font-bold" style={{ color: '#E84C89' }}>
           ${total}
         </p>
+        <button
+          type="button"
+          onClick={handleAdd}
+          className="mt-4 w-full py-3 text-sm font-black"
+          style={{ backgroundColor: '#FCD34D', color: '#081A33', borderRadius: '9999px' }}
+        >
+          Add to Cart 🍋
+        </button>
       </div>
     </div>
   )

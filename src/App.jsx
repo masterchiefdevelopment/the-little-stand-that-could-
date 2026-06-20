@@ -1,5 +1,7 @@
 import { useEffect } from 'react'
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { CartProvider } from './CartContext'
+import CartButton from './components/CartButton'
 import VineAnimation from './components/VineAnimation'
 import Home from './pages/Home'
 import Menu from './pages/Menu'
@@ -18,11 +20,9 @@ import Reviews from './pages/Reviews'
 
 function AppContent() {
   const location = useLocation()
-
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [location.pathname])
-
   return (
     <VineAnimation>
       <Routes>
@@ -47,9 +47,12 @@ function AppContent() {
 
 function App() {
   return (
-    <BrowserRouter>
-      <AppContent />
-    </BrowserRouter>
+    <CartProvider>
+      <BrowserRouter>
+        <AppContent />
+        <CartButton />
+      </BrowserRouter>
+    </CartProvider>
   )
 }
 
