@@ -13,6 +13,21 @@ body {
 
 * {
 	box-sizing: border-box;
+}/* ============================================
+   GLOBAL ROUND EDGES
+   Buttons + inputs = pill. Images = soft corners.
+   Auto-applies site-wide. Override per-element if needed.
+   ============================================ */
+button {
+        border-radius: 9999px;
+}
+input,
+textarea,
+select {
+        border-radius: 9999px;
+}
+img {
+        border-radius: 1rem; /* 16px soft corners on all photos */
 }
 
 .responsive-container {
