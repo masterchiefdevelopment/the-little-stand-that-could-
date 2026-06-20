@@ -33,63 +33,29 @@ function Home() {
     <div style={{ background: PAGE_GRADIENT }}>
       <Nav />
 
-      {/* ===== HERO ===== */}
-      <section
-        className="relative w-full overflow-hidden"
-        style={{
-         backgroundImage: "url('/photos/header.jpg')",
-          backgroundSize: 'cover',
-          backgroundPosition: 'center center',
-          minHeight: '540px',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          padding: 'clamp(2rem, 6vw, 4rem) 1.25rem',
-          textAlign: 'center',
-        }}
-      >
-        {/* Lighter overlay = photo gets breathing room, still readable text.
-            Soft gradient (darker at bottom) keeps buttons legible. */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-            'linear-gradient(180deg, rgba(8,26,51,0.45) 0%, rgba(8,26,51,0.35) 45%, rgba(8,26,51,0.65) 100%)',
-          }}
+      {/* ===== HERO (edge-to-edge photo) ===== */}
+      <section className="w-full">
+        <img
+          src="/photos/header.jpg"
+          alt="The Little Stand That Could"
+          className="block w-full rounded-none"
         />
-
-        <div className="relative z-10 mx-auto flex w-full max-w-3xl flex-col items-center">
-          <h1 className="font-serif text-3xl font-bold leading-tight text-white sm:text-5xl md:text-6xl">
-            Fresh-Squeezed. Real Fruit. No Syrups Ever.
-          </h1>
-          <p className="mt-4 text-base sm:text-xl" style={{ color: '#FCD34D' }}>
-            From our family to yours
-          </p>
-
-          <div className="mt-8 flex w-full flex-col gap-3 sm:flex-row sm:justify-center">
-            {/* Frosted translucent buttons */}
-            <Link
-              to="/order"
-              className="w-full rounded-full border border-white/50 bg-white/25 px-6 py-3 text-center text-sm font-bold text-white backdrop-blur-md transition hover:bg-white/35 sm:w-auto"
-            >
-              Order Online
-            </Link>
-            <Link
-              to="/events"
-              className="w-full rounded-full border border-white/50 bg-white/15 px-6 py-3 text-center text-sm font-bold text-white backdrop-blur-md transition hover:bg-white/30 sm:w-auto"
-            >
-              Book Events
-            </Link>
-            <Link
-              to="/location"
-              className="w-full rounded-full border border-white/50 bg-white/15 px-6 py-3 text-center text-sm font-bold text-white backdrop-blur-md transition hover:bg-white/30 sm:w-auto"
-            >
-              Visit Shop
-            </Link>
-          </div>
-        </div>
       </section>
+
+      {/* ===== TAGLINE (intro to menu) ===== */}
+      <section className="w-full px-5 pt-8 pb-2 text-center">
+        <h1
+          className="font-serif text-2xl font-bold leading-tight sm:text-4xl"
+          style={{ color: '#081A33' }}
+        >
+          Fresh-Squeezed. Real Fruit. No Syrups Ever.
+        </h1>
+        <p className="mt-3 text-sm sm:text-lg" style={{ color: '#E84C89' }}>
+          From our family to yours
+        </p>
+      </section>
+
+      {/* ===== 🍋 SWIPE MENU SLOTS IN HERE (building next) ===== */}
 
       {/* ===== STORY (mobile-first: photo, then text card) ===== */}
       <section className="w-full px-5 py-12 sm:py-16">
