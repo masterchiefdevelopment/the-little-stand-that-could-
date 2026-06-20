@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
+import DrinkBuilder from '../components/DrinkBuilder'
 
 const whyUs = [
   {
@@ -54,6 +55,7 @@ function Home() {
       </section>
 
       {/* ===== 🍋 SWIPE MENU SLOTS IN HERE (building next) ===== */}
+      <DrinkBuilder />
 
       {/* ===== STORY (short hook -> Read Our Full Story) ===== */}
       <section className="w-full px-5 py-12 sm:py-16">
