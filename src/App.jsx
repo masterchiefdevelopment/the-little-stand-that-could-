@@ -1,9 +1,13 @@
 import { useEffect } from 'react'
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { CartProvider } from './CartContext'
+import { AuthProvider } from './context/AuthContext'
 import CartButton from './components/CartButton'
+import ProtectedRoute from './components/ProtectedRoute'
 import VineAnimation from './components/VineAnimation'
 import Home from './pages/Home'
+import Login from './pages/Login'
+import Signup from './pages/Signup'
 import Menu from './pages/Menu'
 import Order from './pages/Order'
 import Location from './pages/Location'
@@ -27,6 +31,8 @@ function AppContent() {
     <VineAnimation>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="/menu" element={<Menu />} />
         <Route path="/order" element={<Order />} />
         <Route path="/location" element={<Location />} />
@@ -38,7 +44,14 @@ function AppContent() {
         <Route path="/reviews" element={<Reviews />} />
         <Route path="/story" element={<Story />} />
         <Route path="/test" element={<Test />} />
-        <Route path="/account" element={<Account />} />
+        <Route
+          path="/account"
+          element={
+            <ProtectedRoute>
+              <Account />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/admin" element={<Admin />} />
       </Routes>
     </VineAnimation>
@@ -47,12 +60,14 @@ function AppContent() {
 
 function App() {
   return (
-    <CartProvider>
-      <BrowserRouter>
-        <AppContent />
-        <CartButton />
-      </BrowserRouter>
-    </CartProvider>
+    <AuthProvider>
+      <CartProvider>
+        <BrowserRouter>
+          <AppContent />
+          <CartButton />
+        </BrowserRouter>
+      </CartProvider>
+    </AuthProvider>
   )
 }
 
