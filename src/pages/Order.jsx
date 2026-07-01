@@ -60,7 +60,6 @@ function Order() {
   const [loading, setLoading] = useState(false)
   const [submitError, setSubmitError] = useState('')
   const [orderConfirmed, setOrderConfirmed] = useState(false)
-  const [orderId, setOrderId] = useState(null)
   const [confirmedOrder, setConfirmedOrder] = useState(null)
 
   const { subtotal, tax, total } = calculateTotal(selectedFlavor, selectedAddOns)
@@ -110,7 +109,7 @@ function Order() {
       status: 'pending',
     }
 
-    const { data, error } = await supabase.from('orders').insert([order]).select()
+    const { error } = await supabase.from('orders').insert([order])
     setLoading(false)
 
     if (error) {
@@ -118,7 +117,6 @@ function Order() {
       return
     }
 
-    setOrderId(data?.[0]?.id ?? null)
     setConfirmedOrder({ flavor: selectedFlavor, addOns: selectedAddOns, total, pickup: selectedPickup })
     setOrderConfirmed(true)
   }
@@ -132,7 +130,6 @@ function Order() {
     setErrors({})
     setSubmitError('')
     setOrderConfirmed(false)
-    setOrderId(null)
     setConfirmedOrder(null)
   }
 
@@ -148,11 +145,6 @@ function Order() {
           <h1 className="font-serif text-3xl font-bold" style={{ color: '#0B1F3A' }}>
             Your order is confirmed! 🍋
           </h1>
-          {orderId && (
-            <p className="mt-2 text-sm" style={{ color: 'rgba(11,31,58,0.6)' }}>
-              Order ID: {orderId}
-            </p>
-          )}
           <p className="mt-4 text-base font-semibold" style={{ color: '#E84C89' }}>
             Your fresh lemonade will be ready {confirmedOrder.pickup.label.toLowerCase()}
           </p>
